@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="BoomersStake — Australia's elite VIP gaming partnership ecosystem. Exclusive deals, instant withdrawals, premium partners.">
+<meta property="og:title" content="BoomersStake — Australia's #1 VIP Gaming Partnership">
+<meta property="og:description" content="Exclusive partner deals, instant payouts, and VIP rewards engineered for serious Australian players.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#7c3aed">
+<title>BoomersStake — Australia's Elite VIP Gaming Partnership</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Syne:wght@400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ── Background layers ── -->
+<canvas id="bgc"></canvas>
+<div class="bg-grid"></div>
+<div class="bg-amb"></div>
+<div class="bg-fog"></div>
+<div class="bg-vig"></div>
+<div class="bg-scan"></div>
+<div class="bg-ambient"></div>
+<div class="bg-fog"></div>
+<div class="bg-vignette"></div>
+<div class="bg-scanlines"></div>
+<div class="bg-grain"></div>
+
+<!-- ── Cursors ── -->
+<div class="c-dot" id="cDot"></div>
+<div class="c-ring" id="cRing"></div>
+
+<!-- ══════════════════════════════════════════
+     MOBILE DRAWER
+     ══════════════════════════════════════════ -->
+<div class="drawer" id="drawer">
+  <div class="drawer-close" id="drawerClose">✕</div>
+  <a href="#partners"  onclick="closeDrawer()">Partners</a>
+  <a href="#community" onclick="closeDrawer()">Community</a>
+  <a href="#why"       onclick="closeDrawer()">Why Us</a>
+  <a href="#faq"       onclick="closeDrawer()">FAQ</a>
+  <a href="#cta" class="btn btn-primary btn-md" onclick="closeDrawer()">Join Now</a>
+</div>
+
+<!-- ══════════════════════════════════════════
+     NAVBAR
+     ══════════════════════════════════════════ -->
+<nav id="nav">
+  <div class="wrap">
+    <div class="nav-wrap">
+      <a href="#" class="logotype">
+        <div class="logo-gem">B</div>
+        <span class="logo-name">BOOMERSTAKE</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#partners">Partners</a></li>
+        <li><a href="#community">Community</a></li>
+        <li><a href="#why">Why Us</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="#cta" class="btn btn-ghost btn-sm nav-ghost">Join Telegram</a>
+        <a href="#partners" class="btn btn-primary btn-sm">Get Started</a>
+        <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- ══════════════════════════════════════════
+     HERO
+     ══════════════════════════════════════════ -->
+<section id="hero">
+  <div class="hero-nebula"></div>
+  <div class="hero-aurora"></div>
+  <div class="hero-orb hero-orb-a"></div>
+  <div class="hero-orb hero-orb-b"></div>
+  <div class="hero-orb hero-orb-c"></div>
+  <div class="hero-streak hero-streak-1"></div>
+  <div class="hero-streak hero-streak-2"></div>
+  <div class="hero-streak hero-streak-3"></div>
+  <div class="hero-streak hero-streak-4"></div>
+  <div class="hero-streak hero-streak-5"></div>
+  <div class="hero-flare"></div>
+
+  <div class="wrap" style="width:100%">
+    <div class="hero-inner">
+
+      <!-- Left -->
+      <div>
+        <div class="hero-badge"><span class="badge-pulse"></span>Australia's #1 VIP Gaming Network</div>
+
+        <h1 class="hero-wordmark">
+          <span class="wm-line1">BOOMER</span>
+          <span class="wm-line2">STAKE</span>
+        </h1>
+
+        <p class="hero-tag">Elite Partnerships. Exclusive Rewards. Zero Compromise.</p>
+
+        <p class="hero-copy">
+          The premium gateway to Australia's most exclusive gaming partnerships. Handpicked platforms, VIP-negotiated bonuses, and instant payouts — built for serious players.
+        </p>
+
+        <div class="hero-ctas">
+          <a href="#partners" class="btn btn-primary btn-xl">
+            <span>⬡</span> Explore Partners
+          </a>
+          <a href="#cta" class="btn btn-tg btn-xl">
+            <span>✈</span> Join Telegram
+          </a>
+        </div>
+
+        <div class="hero-metrics">
+          <div class="hm-item">
+            <span class="hm-val count-up" data-val="12400" data-sfx="+">0</span>
+            <span class="hm-lbl">VIP Members</span>
+          </div>
+          <div class="hm-item">
+            <span class="hm-val count-up" data-val="98" data-sfx="%">0</span>
+            <span class="hm-lbl">Payout Rate</span>
+          </div>
+          <div class="hm-item">
+            <span class="hm-val">24/7</span>
+            <span class="hm-lbl">VIP Support</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right -->
+      <div class="hero-right">
+        <div class="orb-ring orb-ring-1"></div>
+        <div class="orb-ring orb-ring-2"></div>
+        <div class="orb-ring orb-ring-3"></div>
+
+        <!-- Holo chips -->
+        <div class="holo-chip chip-1">
+          <div class="chip-label">Today's Payouts</div>
+          <div class="chip-value" style="color:var(--g3)">$84,220</div>
+          <div class="chip-delta up">↑ +18.4%</div>
+        </div>
+        <div class="holo-chip chip-2">
+          <div class="chip-label">Live Members</div>
+          <div class="chip-value">3,847</div>
+          <div class="chip-delta live">● Online now</div>
+        </div>
+        <div class="holo-chip chip-3">
+          <div class="chip-label">Top Bonus</div>
+          <div class="chip-value" style="color:var(--p3)">$10,000</div>
+          <div class="chip-delta" style="color:var(--p3)">VIP Exclusive</div>
+        </div>
+
+        <!-- Mascot SVG -->
+        <div class="mascot-wrap">
+          <svg viewBox="0 0 240 260" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%">
+            <defs>
+              <linearGradient id="mg1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#7c3aed"/><stop offset="100%" stop-color="#06b6d4"/></linearGradient>
+              <linearGradient id="mg2" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#0c1c35"/><stop offset="100%" stop-color="#050f20"/></linearGradient>
+              <radialGradient id="eg1" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#a855f7" stop-opacity="0.9"/><stop offset="100%" stop-color="#a855f7" stop-opacity="0"/></radialGradient>
+              <radialGradient id="eg2" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#22d3ee" stop-opacity="0.9"/><stop offset="100%" stop-color="#22d3ee" stop-opacity="0"/></radialGradient>
+              <filter id="gf"><feGaussianBlur stdDeviation="3.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+              <filter id="bf"><feGaussianBlur stdDeviation="8"/></filter>
+            </defs>
+            <!-- Shadow -->
+            <ellipse cx="120" cy="252" rx="65" ry="8" fill="rgba(124,58,237,0.28)" filter="url(#bf)"/>
+            <!-- Legs -->
+            <rect x="84" y="196" width="27" height="52" rx="9" fill="url(#mg1)" opacity="0.92"/>
+            <rect x="129" y="196" width="27" height="52" rx="9" fill="url(#mg1)" opacity="0.92"/>
+            <rect x="80" y="234" width="35" height="18" rx="7" fill="#081529" stroke="rgba(168,85,247,0.55)" stroke-width="1"/>
+            <rect x="125" y="234" width="35" height="18" rx="7" fill="#081529" stroke="rgba(34,211,238,0.55)" stroke-width="1"/>
+            <line x1="86" y1="241" x2="109" y2="241" stroke="#a855f7" stroke-width="1.5" opacity="0.75"/>
+            <line x1="131" y1="241" x2="154" y2="241" stroke="#22d3ee" stroke-width="1.5" opacity="0.75"/>
+            <!-- Torso -->
+            <rect x="68" y="122" width="104" height="84" rx="18" fill="url(#mg1)" opacity="0.96"/>
+            <rect x="74" y="128" width="92" height="72" rx="12" fill="#050f20" opacity="0.6"/>
+            <!-- Chest display -->
+            <rect x="84" y="136" width="72" height="50" rx="8" fill="#020c1b" stroke="rgba(34,211,238,0.28)" stroke-width="1"/>
+            <polyline points="88,174 97,163 108,168 118,155 128,162 138,149 148,155 152,148" stroke="url(#mg1)" stroke-width="2" fill="none" stroke-linecap="round" filter="url(#gf)"/>
+            <text x="120" y="182" font-family="JetBrains Mono,monospace" font-size="7" fill="#22d3ee" text-anchor="middle" opacity="0.85" letter-spacing="2">LIVE FEED</text>
+            <!-- Side vents -->
+            <rect x="70" y="138" width="5" height="38" rx="2.5" fill="rgba(168,85,247,0.3)"/>
+            <rect x="165" y="138" width="5" height="38" rx="2.5" fill="rgba(34,211,238,0.3)"/>
+            <!-- Arms -->
+            <rect x="40" y="126" width="30" height="74" rx="13" fill="url(#mg1)" opacity="0.9"/>
+            <rect x="170" y="126" width="30" height="74" rx="13" fill="url(#mg1)" opacity="0.9"/>
+            <rect x="36" y="183" width="37" height="26" rx="10" fill="#081529" stroke="rgba(168,85,247,0.5)" stroke-width="1"/>
+            <rect x="167" y="183" width="37" height="26" rx="10" fill="#081529" stroke="rgba(34,211,238,0.5)" stroke-width="1"/>
+            <circle cx="55" cy="128" r="6" fill="rgba(168,85,247,0.65)" filter="url(#gf)"/>
+            <circle cx="185" cy="128" r="6" fill="rgba(34,211,238,0.65)" filter="url(#gf)"/>
+            <!-- Neck -->
+            <rect x="104" y="106" width="32" height="20" rx="6" fill="#0c1c35" stroke="rgba(120,80,255,0.28)" stroke-width="1"/>
+            <line x1="112" y1="111" x2="112" y2="122" stroke="rgba(168,85,247,0.5)" stroke-width="1.5"/>
+            <line x1="120" y1="109" x2="120" y2="122" stroke="rgba(34,211,238,0.5)" stroke-width="1.5"/>
+            <line x1="128" y1="111" x2="128" y2="122" stroke="rgba(168,85,247,0.5)" stroke-width="1.5"/>
+            <!-- Head -->
+            <rect x="62" y="38" width="116" height="72" rx="22" fill="url(#mg2)" stroke="rgba(124,58,237,0.45)" stroke-width="1.5"/>
+            <rect x="62" y="38" width="116" height="72" rx="22" fill="none" stroke="url(#mg1)" stroke-width="0.8" opacity="0.35"/>
+            <!-- Antenna -->
+            <line x1="120" y1="38" x2="120" y2="16" stroke="rgba(168,85,247,0.7)" stroke-width="2"/>
+            <circle cx="120" cy="12" r="5" fill="#a855f7" filter="url(#gf)"/>
+            <circle cx="99"  cy="30" r="2.5" fill="#22d3ee" opacity="0.6"/>
+            <circle cx="141" cy="30" r="2.5" fill="#a855f7" opacity="0.6"/>
+            <!-- Ear panels -->
+            <rect x="49" y="52" width="15" height="42" rx="8" fill="#081529" stroke="rgba(124,58,237,0.38)" stroke-width="1"/>
+            <rect x="176" y="52" width="15" height="42" rx="8" fill="#081529" stroke="rgba(34,211,238,0.38)" stroke-width="1"/>
+            <line x1="54" y1="60" x2="58" y2="60" stroke="#a855f7" stroke-width="1.5" opacity="0.7"/>
+            <line x1="54" y1="67" x2="58" y2="67" stroke="#a855f7" stroke-width="1.5" opacity="0.5"/>
+            <line x1="54" y1="74" x2="58" y2="74" stroke="#a855f7" stroke-width="1.5" opacity="0.3"/>
+            <line x1="182" y1="60" x2="186" y2="60" stroke="#22d3ee" stroke-width="1.5" opacity="0.7"/>
+            <line x1="182" y1="67" x2="186" y2="67" stroke="#22d3ee" stroke-width="1.5" opacity="0.5"/>
+            <line x1="182" y1="74" x2="186" y2="74" stroke="#22d3ee" stroke-width="1.5" opacity="0.3"/>
+            <!-- Visor brow -->
+            <rect x="68" y="50" width="104" height="13" rx="6.5" fill="rgba(168,85,247,0.16)" stroke="rgba(168,85,247,0.38)" stroke-width="1"/>
+            <rect x="72" y="56" width="96" height="1" fill="url(#mg1)" opacity="0.5"/>
+            <!-- Eyes -->
+            <ellipse cx="97" cy="82" rx="19" ry="15" fill="#020c1b" stroke="rgba(168,85,247,0.48)" stroke-width="1.5"/>
+            <ellipse cx="97" cy="82" rx="13" ry="9" fill="url(#eg1)" opacity="0.3"/>
+            <ellipse cx="97" cy="82" rx="7" ry="6" fill="#a855f7" opacity="0.92" filter="url(#gf)"/>
+            <ellipse cx="97" cy="82" rx="3" ry="2.5" fill="white" opacity="0.75"/>
+            <line x1="80" y1="82" x2="114" y2="82" stroke="rgba(168,85,247,0.25)" stroke-width="0.8"/>
+            <line x1="97" y1="68" x2="97" y2="96" stroke="rgba(168,85,247,0.25)" stroke-width="0.8"/>
+            <ellipse cx="143" cy="82" rx="19" ry="15" fill="#020c1b" stroke="rgba(34,211,238,0.48)" stroke-width="1.5"/>
+            <ellipse cx="143" cy="82" rx="13" ry="9" fill="url(#eg2)" opacity="0.3"/>
+            <ellipse cx="143" cy="82" rx="7" ry="6" fill="#22d3ee" opacity="0.92" filter="url(#gf)"/>
+            <ellipse cx="143" cy="82" rx="3" ry="2.5" fill="white" opacity="0.75"/>
+            <line x1="126" y1="82" x2="160" y2="82" stroke="rgba(34,211,238,0.25)" stroke-width="0.8"/>
+            <line x1="143" y1="68" x2="143" y2="96" stroke="rgba(34,211,238,0.25)" stroke-width="0.8"/>
+            <!-- Mouth -->
+            <rect x="98" y="100" width="44" height="7" rx="3.5" fill="rgba(100,60,255,0.18)" stroke="rgba(100,60,255,0.3)" stroke-width="1"/>
+            <circle cx="104" cy="104" r="1.5" fill="#a855f7" opacity="0.65"/>
+            <circle cx="112" cy="104" r="1.5" fill="#a855f7" opacity="0.5"/>
+            <circle cx="120" cy="104" r="2" fill="#22d3ee" opacity="0.9"/>
+            <circle cx="128" cy="104" r="1.5" fill="#a855f7" opacity="0.5"/>
+            <circle cx="136" cy="104" r="1.5" fill="#a855f7" opacity="0.65"/>
+            <!-- Crown -->
+            <polygon points="100,44 110,33 120,40 130,33 140,44" fill="none" stroke="rgba(251,191,36,0.55)" stroke-width="1.5" stroke-linejoin="round"/>
+            <circle cx="120" cy="40" r="3" fill="#fbbf24" opacity="0.9" filter="url(#gf)"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     TRUST STRIP
+     ══════════════════════════════════════════ -->
+<section id="trust">
+  <div class="wrap">
+    <div class="trust-grid">
+      <div class="trust-pill fade fd1">
+        <div class="trust-ico" style="background:rgba(124,58,237,0.12);border:1px solid rgba(168,85,247,0.2)">🔐</div>
+        <div class="trust-name" style="color:var(--p3)">Verified Partners</div>
+        <div class="trust-sub">40-point audit on every platform</div>
+      </div>
+      <div class="trust-pill fade fd2">
+        <div class="trust-ico" style="background:rgba(34,211,238,0.1);border:1px solid rgba(34,211,238,0.2)">⚡</div>
+        <div class="trust-name" style="color:var(--c3)">Instant Withdrawals</div>
+        <div class="trust-sub">Fast payouts, no excuses</div>
+      </div>
+      <div class="trust-pill fade fd3">
+        <div class="trust-ico" style="background:rgba(251,191,36,0.1);border:1px solid rgba(251,191,36,0.2)">💎</div>
+        <div class="trust-name" style="color:var(--g3)">VIP Support</div>
+        <div class="trust-sub">24/7 dedicated account access</div>
+      </div>
+      <div class="trust-pill fade fd4">
+        <div class="trust-ico" style="background:rgba(52,211,153,0.1);border:1px solid rgba(52,211,153,0.2)">🛡️</div>
+        <div class="trust-name" style="color:var(--green)">Secure Platform</div>
+        <div class="trust-sub">Bank-grade encryption throughout</div>
+      </div>
+      <div class="trust-pill fade fd5">
+        <div class="trust-ico" style="background:rgba(124,58,237,0.12);border:1px solid rgba(168,85,247,0.2)">🇦🇺</div>
+        <div class="trust-name" style="color:var(--p3)">Aussie Community</div>
+        <div class="trust-sub">Made in Australia, for Australians</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     PARTNERS
+     ══════════════════════════════════════════ -->
+<section id="partners" class="section">
+  <div class="wrap">
+    <div class="partners-intro">
+      <div class="fade">
+        <div class="eyebrow">Exclusive Network</div>
+        <h2 class="h-lg">VIP <span class="gt-purple">PARTNER</span><br>MODULES</h2>
+        <p class="lead" style="margin-top:var(--s2)">Handpicked platforms with bonuses exclusive to the BoomersStake network.</p>
+      </div>
+      <div class="fade" style="text-align:right">
+        <a href="#cta" class="btn btn-ghost btn-md">All Partners →</a>
+      </div>
+    </div>
+
+    <div class="partners-grid">
+
+      <!-- Card 1: Apex Play -->
+      <div class="pcard fade fd1" style="--card-delay:0.05s">
+        <div class="pcard-glow"></div>
+        <div class="pcard-shine"></div>
+        <div class="pcard-header">
+          <div class="pcard-status">
+            <div class="status-dot" style="background:var(--green);box-shadow:0 0 6px var(--green)"></div>
+            <span style="color:var(--green)">Active</span>
+          </div>
+          <div class="pcard-tier tier-gold">⭐ VIP Exclusive</div>
+        </div>
+        <div class="pcard-body">
+          <div class="pcard-identity">
+            <div class="pcard-logo" style="background:linear-gradient(135deg,#6d28d9,#a855f7)">A</div>
+            <div>
+              <div class="pcard-name">APEX PLAY</div>
+              <div class="pcard-cat">casino · AU Licensed</div>
+            </div>
+          </div>
+          <div class="pcard-metrics">
+            <div class="pm-box">
+              <div class="pm-label">Welcome</div>
+              <div class="pm-value" style="color:var(--g3)">$5,000</div>
+            </div>
+            <div class="pm-box">
+              <div class="pm-label">Free Spins</div>
+              <div class="pm-value" style="color:var(--p3)">200 FS</div>
+            </div>
+          </div>
+          <div class="pcard-tags">
+            <span class="ptag">No Wagering</span>
+            <span class="ptag">Instant Cashout</span>
+            <span class="ptag">Crypto</span>
+          </div>
+          <div class="pcard-actions">
+            <a href="#" class="btn btn-primary btn-sm">Register</a>
+            <a href="#" class="btn btn-tg btn-sm">✈ TG</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2: Nexus Bet -->
+      <div class="pcard fade fd2" style="--card-delay:0.15s">
+        <div class="pcard-glow"></div>
+        <div class="pcard-shine"></div>
+        <div class="pcard-header">
+          <div class="pcard-status">
+            <div class="status-dot" style="background:var(--c4);box-shadow:0 0 6px var(--c4)"></div>
+            <span style="color:var(--c3)">Live</span>
+          </div>
+          <div class="pcard-tier tier-cyan">✦ Staff Pick</div>
+        </div>
+        <div class="pcard-body">
+          <div class="pcard-identity">
+            <div class="pcard-logo" style="background:linear-gradient(135deg,#0c5a6e,#06b6d4)">N</div>
+            <div>
+              <div class="pcard-name">NEXUS BET</div>
+              <div class="pcard-cat">sports + casino</div>
+            </div>
+          </div>
+          <div class="pcard-metrics">
+            <div class="pm-box">
+              <div class="pm-label">Cashback</div>
+              <div class="pm-value" style="color:var(--c4)">$10,000</div>
+            </div>
+            <div class="pm-box">
+              <div class="pm-label">Weekly Rate</div>
+              <div class="pm-value" style="color:var(--g3)">15%</div>
+            </div>
+          </div>
+          <div class="pcard-tags">
+            <span class="ptag">Live Casino</span>
+            <span class="ptag">Sports</span>
+            <span class="ptag">AUS Licensed</span>
+          </div>
+          <div class="pcard-actions">
+            <a href="#" class="btn btn-primary btn-sm">Register</a>
+            <a href="#" class="btn btn-tg btn-sm">✈ TG</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3: Royal Vault -->
+      <div class="pcard fade fd3" style="--card-delay:0.25s">
+        <div class="pcard-glow"></div>
+        <div class="pcard-shine"></div>
+        <div class="pcard-header">
+          <div class="pcard-status">
+            <div class="status-dot" style="background:var(--g3);box-shadow:0 0 6px var(--g3)"></div>
+            <span style="color:var(--g3)">Premium</span>
+          </div>
+          <div class="pcard-tier tier-gold">👑 Black Label</div>
+        </div>
+        <div class="pcard-body">
+          <div class="pcard-identity">
+            <div class="pcard-logo" style="background:linear-gradient(135deg,#92400e,#f59e0b)">R</div>
+            <div>
+              <div class="pcard-name">ROYAL VAULT</div>
+              <div class="pcard-cat">premium casino</div>
+            </div>
+          </div>
+          <div class="pcard-metrics">
+            <div class="pm-box">
+              <div class="pm-label">Elite Package</div>
+              <div class="pm-value" style="color:var(--g3)">$7,500</div>
+            </div>
+            <div class="pm-box">
+              <div class="pm-label">VIP Status</div>
+              <div class="pm-value" style="color:var(--green)">Instant</div>
+            </div>
+          </div>
+          <div class="pcard-tags">
+            <span class="ptag">High Roller</span>
+            <span class="ptag">VIP Host</span>
+            <span class="ptag">Fast KYC</span>
+          </div>
+          <div class="pcard-actions">
+            <a href="#" class="btn btn-gold btn-sm">Register</a>
+            <a href="#" class="btn btn-tg btn-sm">✈ TG</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 4: Zenith Games -->
+      <div class="pcard fade fd4" style="--card-delay:0.35s">
+        <div class="pcard-glow"></div>
+        <div class="pcard-shine"></div>
+        <div class="pcard-header">
+          <div class="pcard-status">
+            <div class="status-dot" style="background:var(--p4);box-shadow:0 0 6px var(--p4)"></div>
+            <span style="color:var(--p3)">Hot Deal</span>
+          </div>
+          <div class="pcard-tier tier-purple">⚡ Trending</div>
+        </div>
+        <div class="pcard-body">
+          <div class="pcard-identity">
+            <div class="pcard-logo" style="background:linear-gradient(135deg,#4c1d95,#7c3aed)">Z</div>
+            <div>
+              <div class="pcard-name">ZENITH GAMES</div>
+              <div class="pcard-cat">crypto casino</div>
+            </div>
+          </div>
+          <div class="pcard-metrics">
+            <div class="pm-box">
+              <div class="pm-label">Match Bonus</div>
+              <div class="pm-value" style="color:var(--p3)">300%</div>
+            </div>
+            <div class="pm-box">
+              <div class="pm-label">Up To</div>
+              <div class="pm-value" style="color:var(--g3)">$3,000</div>
+            </div>
+          </div>
+          <div class="pcard-tags">
+            <span class="ptag">No KYC Option</span>
+            <span class="ptag">BTC Bonus</span>
+            <span class="ptag">eSports</span>
+          </div>
+          <div class="pcard-actions">
+            <a href="#" class="btn btn-primary btn-sm">Register</a>
+            <a href="#" class="btn btn-tg btn-sm">✈ TG</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 5: Vortex -->
+      <div class="pcard fade fd5" style="--card-delay:0.45s">
+        <div class="pcard-glow"></div>
+        <div class="pcard-shine"></div>
+        <div class="pcard-header">
+          <div class="pcard-status">
+            <div class="status-dot" style="background:var(--green);box-shadow:0 0 6px var(--green)"></div>
+            <span style="color:var(--green)">Live Now</span>
+          </div>
+          <div class="pcard-tier tier-gold">🔥 Trending</div>
+        </div>
+        <div class="pcard-body">
+          <div class="pcard-identity">
+            <div class="pcard-logo" style="background:linear-gradient(135deg,#0c5a6e,#6d28d9)">V</div>
+            <div>
+              <div class="pcard-name">VORTEX CASINO</div>
+              <div class="pcard-cat">live casino</div>
+            </div>
+          </div>
+          <div class="pcard-metrics">
+            <div class="pm-box">
+              <div class="pm-label">Reload Bonus</div>
+              <div class="pm-value" style="color:var(--c4)">$4,000</div>
+            </div>
+            <div class="pm-box">
+              <div class="pm-label">Weekly Spins</div>
+              <div class="pm-value" style="color:var(--p3)">50 FS</div>
+            </div>
+          </div>
+          <div class="pcard-tags">
+            <span class="ptag">Live Dealers</span>
+            <span class="ptag">Jackpots</span>
+            <span class="ptag">Mobile App</span>
+          </div>
+          <div class="pcard-actions">
+            <a href="#" class="btn btn-primary btn-sm">Register</a>
+            <a href="#" class="btn btn-tg btn-sm">✈ TG</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 6: Prism -->
+      <div class="pcard fade fd6" style="--card-delay:0.55s">
+        <div class="pcard-glow"></div>
+        <div class="pcard-shine"></div>
+        <div class="pcard-header">
+          <div class="pcard-status">
+            <div class="status-dot" style="background:var(--green);box-shadow:0 0 6px var(--green)"></div>
+            <span style="color:var(--green)">New</span>
+          </div>
+          <div class="pcard-tier tier-cyan">🎯 Just Launched</div>
+        </div>
+        <div class="pcard-body">
+          <div class="pcard-identity">
+            <div class="pcard-logo" style="background:linear-gradient(135deg,#065f46,#10b981)">P</div>
+            <div>
+              <div class="pcard-name">PRISM SLOTS</div>
+              <div class="pcard-cat">slots specialist</div>
+            </div>
+          </div>
+          <div class="pcard-metrics">
+            <div class="pm-box">
+              <div class="pm-label">Free Spins</div>
+              <div class="pm-value" style="color:var(--green)">500 FS</div>
+            </div>
+            <div class="pm-box">
+              <div class="pm-label">Wager Req.</div>
+              <div class="pm-value" style="color:var(--c4)">Low</div>
+            </div>
+          </div>
+          <div class="pcard-tags">
+            <span class="ptag">5,000+ Slots</span>
+            <span class="ptag">No Deposit</span>
+            <span class="ptag">Daily FS</span>
+          </div>
+          <div class="pcard-actions">
+            <a href="#" class="btn btn-primary btn-sm">Register</a>
+            <a href="#" class="btn btn-tg btn-sm">✈ TG</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="hr"></div>
+
+<!-- ══════════════════════════════════════════
+     COMMUNITY
+     ══════════════════════════════════════════ -->
+<section id="community" class="section">
+  <div class="wrap">
+    <div class="comm-intro fade">
+      <div class="eyebrow">The Network</div>
+      <h2 class="h-lg">OUR <span class="gt-purple">COMMUNITY</span></h2>
+      <p class="lead" style="margin-top:var(--s2)">A growing network of Australian VIP players, paying out every single day.</p>
+    </div>
+
+    <div class="comm-grid">
+
+      <div class="comm-card fade fd1">
+        <div class="eyebrow" style="margin-bottom:var(--s2)">Live Stats</div>
+        <div class="comm-card-title">BY THE NUMBERS</div>
+        <div class="stat-quad">
+          <div class="sq-box">
+            <span class="sq-num gt-purple">12,400+</span>
+            <span class="sq-lbl">VIP Members</span>
+          </div>
+          <div class="sq-box">
+            <span class="sq-num" style="color:var(--g3)">$840K+</span>
+            <span class="sq-lbl">Paid This Month</span>
+          </div>
+          <div class="sq-box">
+            <span class="sq-num" style="color:var(--c4)">98.6%</span>
+            <span class="sq-lbl">Payout Rate</span>
+          </div>
+          <div class="sq-box">
+            <span class="sq-num" style="color:var(--green)">6</span>
+            <span class="sq-lbl">Elite Partners</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="comm-card fade fd2">
+        <div class="feed-live"><div class="feed-live-dot"></div>LIVE ACTIVITY</div>
+        <div class="comm-card-title" style="margin-bottom:var(--s2)">VIP FEED</div>
+        <div class="feed" id="feed">
+          <div class="feed-row">
+            <div class="feed-dot" style="background:var(--green);box-shadow:0 0 6px var(--green)"></div>
+            <span class="feed-txt">🏆 @aussie_vip388 won big at Apex Play</span>
+            <span class="feed-amt" style="color:var(--g3)">+$2,840</span>
+          </div>
+          <div class="feed-row">
+            <div class="feed-dot" style="background:var(--c4);box-shadow:0 0 6px var(--c4)"></div>
+            <span class="feed-txt">⚡ @sydney_roller registered via link</span>
+            <span class="feed-amt" style="color:var(--c3)">New</span>
+          </div>
+          <div class="feed-row">
+            <div class="feed-dot" style="background:var(--p4);box-shadow:0 0 6px var(--p4)"></div>
+            <span class="feed-txt">💎 @mel_vip777 claimed VIP cashback</span>
+            <span class="feed-amt" style="color:var(--p3)">+$560</span>
+          </div>
+          <div class="feed-row">
+            <div class="feed-dot" style="background:var(--g3);box-shadow:0 0 6px var(--g3)"></div>
+            <span class="feed-txt">👑 @royalstaker99 hit jackpot — Royal Vault</span>
+            <span class="feed-amt" style="color:var(--g3)">+$12,000</span>
+          </div>
+          <div class="feed-row">
+            <div class="feed-dot" style="background:var(--green);box-shadow:0 0 6px var(--green)"></div>
+            <span class="feed-txt">🎯 @qld_roller claimed 500 free spins</span>
+            <span class="feed-amt" style="color:var(--green)">500 FS</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="comm-card fade fd3">
+        <div class="eyebrow" style="margin-bottom:var(--s2)">Revenue</div>
+        <div class="comm-card-title">DAILY PAYOUTS</div>
+        <div class="bar-chart" style="margin-top:var(--s3)">
+          <div class="bar-col"><div class="bar-fill" style="height:60%;background:linear-gradient(180deg,var(--p5),var(--p7));opacity:0.7"></div><span class="bar-lbl">MON</span></div>
+          <div class="bar-col"><div class="bar-fill" style="height:76%;background:linear-gradient(180deg,var(--p5),var(--p7))"></div><span class="bar-lbl">TUE</span></div>
+          <div class="bar-col"><div class="bar-fill" style="height:55%;background:linear-gradient(180deg,var(--c5),var(--c7));opacity:0.7"></div><span class="bar-lbl">WED</span></div>
+          <div class="bar-col"><div class="bar-fill" style="height:88%;background:linear-gradient(180deg,var(--p5),var(--p7))"></div><span class="bar-lbl">THU</span></div>
+          <div class="bar-col"><div class="bar-fill" style="height:96%;background:linear-gradient(180deg,var(--g4),var(--g5));box-shadow:0 0 14px rgba(245,158,11,0.4)"></div><span class="bar-lbl">FRI</span></div>
+          <div class="bar-col"><div class="bar-fill" style="height:100%;background:linear-gradient(180deg,var(--c4),var(--c7));box-shadow:0 0 14px rgba(34,211,238,0.4)"></div><span class="bar-lbl">SAT</span></div>
+          <div class="bar-col"><div class="bar-fill" style="height:82%;background:linear-gradient(180deg,var(--p4),var(--c5));box-shadow:0 0 10px rgba(124,58,237,0.4)"></div><span class="bar-lbl">SUN</span></div>
+        </div>
+        <div style="margin-top:var(--s3);font-size:var(--body-sm);color:var(--text-2)">Avg. daily: <span style="color:var(--g3);font-family:var(--f-display);font-weight:700;font-size:var(--display-sm)">$28,400</span></div>
+      </div>
+
+      <div class="comm-card tg-comm fade fd4">
+        <div class="tg-big">✈</div>
+        <span class="tg-count gt-purple">12,400+</span>
+        <span class="tg-sub">Members in our private VIP Telegram — daily deals, exclusive codes, live VIP support</span>
+        <a href="#" class="btn btn-tg btn-lg btn-full">
+          <span>✈</span> Join Free Now
+        </a>
+        <div style="margin-top:var(--s2);font-family:var(--f-mono);font-size:9px;color:var(--text-3);letter-spacing:0.15em">FREE · INSTANT · PRIVATE</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="hr"></div>
+
+<!-- ══════════════════════════════════════════
+     WHY US
+     ══════════════════════════════════════════ -->
+<section id="why" class="section">
+  <div class="wrap">
+    <div class="why-intro">
+      <div class="fade">
+        <div class="eyebrow">Our Edge</div>
+        <h2 class="h-lg">WHY <span class="gt-purple">BOOMER<br>STAKE</span></h2>
+      </div>
+      <div class="fade">
+        <p class="lead">We don't just list platforms. We negotiate exclusive deals, verify legitimacy, and back every recommendation with our VIP network's trust.</p>
+      </div>
+    </div>
+    <div class="why-grid">
+      <div class="wc fade fd1">
+        <div class="wc-icon" style="background:rgba(124,58,237,0.12);border:1px solid rgba(168,85,247,0.18)">🔬</div>
+        <div class="wc-title">Rigorous Vetting</div>
+        <p class="wc-desc">Every partner undergoes a 40-point audit covering licensing, payouts, support, and fairness before we endorse them.</p>
+      </div>
+      <div class="wc fade fd2">
+        <div class="wc-icon" style="background:rgba(34,211,238,0.1);border:1px solid rgba(34,211,238,0.18)">💰</div>
+        <div class="wc-title">Exclusive Bonuses</div>
+        <p class="wc-desc">Our deals are negotiated directly. The bonuses here exist only through BoomersStake — you won't find them on the casino's own site.</p>
+      </div>
+      <div class="wc fade fd3">
+        <div class="wc-icon" style="background:rgba(251,191,36,0.1);border:1px solid rgba(251,191,36,0.18)">📡</div>
+        <div class="wc-title">Real-Time Updates</div>
+        <p class="wc-desc">New bonuses, promo codes, and live opportunities hit our Telegram first — updated daily by our Australia-based team.</p>
+      </div>
+      <div class="wc fade fd4">
+        <div class="wc-icon" style="background:rgba(52,211,153,0.1);border:1px solid rgba(52,211,153,0.18)">🤝</div>
+        <div class="wc-title">VIP Advocacy</div>
+        <p class="wc-desc">Withdrawal issue? We escalate directly to the operator on your behalf. Our partnerships give us access regular players don't have.</p>
+      </div>
+      <div class="wc fade fd5">
+        <div class="wc-icon" style="background:rgba(124,58,237,0.12);border:1px solid rgba(168,85,247,0.18)">🇦🇺</div>
+        <div class="wc-title">100% Australian</div>
+        <p class="wc-desc">Built by Australians for Australians. We understand the local banking, the landscape, and what Aussie players actually need.</p>
+      </div>
+      <div class="wc fade fd6">
+        <div class="wc-icon" style="background:rgba(34,211,238,0.1);border:1px solid rgba(34,211,238,0.18)">🔒</div>
+        <div class="wc-title">Privacy First</div>
+        <p class="wc-desc">Your data stays yours. We never sell member information and our encrypted Telegram community is fully private.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="hr"></div>
+
+<!-- ══════════════════════════════════════════
+     FAQ
+     ══════════════════════════════════════════ -->
+<section id="faq" class="section">
+  <div class="wrap-tight">
+    <div class="faq-head fade">
+      <div class="eyebrow">Got Questions</div>
+      <h2 class="h-lg">FREQUENTLY <span class="gt-purple">ASKED</span></h2>
+    </div>
+    <div class="faq-col">
+      <div class="fq fade fd1">
+        <div class="fq-q">Is BoomersStake free to join?<div class="fq-icon">▾</div></div>
+        <div class="fq-a"><p>Yes, completely free. Our Telegram community, partner links, and exclusive bonus codes are all free to access. We earn through partnership arrangements with platforms — you pay us nothing directly.</p></div>
+      </div>
+      <div class="fq fade fd2">
+        <div class="fq-q">Are these bonuses actually exclusive?<div class="fq-icon">▾</div></div>
+        <div class="fq-a"><p>In most cases, yes. We negotiate directly with each operator to secure deals not publicly available. Registering through our links gets you enhanced welcome packages, reduced wagering, or instant VIP status you wouldn't get going direct.</p></div>
+      </div>
+      <div class="fq fade fd3">
+        <div class="fq-q">How do I access VIP deals?<div class="fq-icon">▾</div></div>
+        <div class="fq-a"><p>Join our Telegram (free and instant) and click the registration links we provide. Bonuses activate automatically. Some also use promo codes — posted daily in the Telegram channel.</p></div>
+      </div>
+      <div class="fq fade fd4">
+        <div class="fq-q">Which payment methods are accepted?<div class="fq-icon">▾</div></div>
+        <div class="fq-a"><p>Our partners accept Visa/Mastercard, bank transfer, PayID, POLi, and most major cryptocurrencies including Bitcoin, Ethereum, and USDT. Methods vary by platform — check each partner's page for specifics.</p></div>
+      </div>
+      <div class="fq fade fd5">
+        <div class="fq-q">What if I have a withdrawal problem?<div class="fq-icon">▾</div></div>
+        <div class="fq-a"><p>Contact us directly via Telegram and we'll escalate to the operator on your behalf. Our direct relationships with VIP and compliance teams give us leverage regular players don't have. We take this seriously.</p></div>
+      </div>
+      <div class="fq fade fd6">
+        <div class="fq-q">Is gambling legal in Australia?<div class="fq-icon">▾</div></div>
+        <div class="fq-a"><p>Online gambling law in Australia is complex. We recommend verifying the licensing and terms of any platform in your jurisdiction. All listed platforms operate under legitimate international gaming licences. Please gamble responsibly.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     FINAL CTA
+     ══════════════════════════════════════════ -->
+<section id="cta" class="section">
+  <div class="wrap">
+    <div class="cta-shell fade">
+      <div class="cta-corner tl"></div>
+      <div class="cta-corner tr"></div>
+      <div class="cta-corner bl"></div>
+      <div class="cta-corner br"></div>
+
+      <div class="cta-eyebrow">✦ Limited Spots Available</div>
+      <h2 class="cta-title">
+        JOIN AUSTRALIA'S<br>
+        <span class="gt-purple">ELITE VIP NETWORK</span>
+      </h2>
+      <p class="lead cta-sub">Thousands of Australians already access exclusive deals through our Telegram. Free, instant, private.</p>
+      <div class="cta-btns">
+        <a href="#" class="btn btn-tg btn-xl"><span>✈</span> Join Our Telegram</a>
+        <a href="#partners" class="btn btn-ghost btn-xl">Browse Partners</a>
+      </div>
+      <div class="cta-proof">
+        <div class="proof-item">🆓 Always Free</div>
+        <div class="proof-item">⚡ Instant Access</div>
+        <div class="proof-item">🔒 Private Community</div>
+        <div class="proof-item">🇦🇺 Aussie Members</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     FOOTER
+     ══════════════════════════════════════════ -->
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <a href="#" class="logotype" style="display:inline-flex">
+          <div class="logo-gem">B</div>
+          <span class="logo-name">BOOMERSTAKE</span>
+        </a>
+        <p class="footer-brand-desc">Australia's premier VIP gaming partnership ecosystem. Exclusive deals, real community, trusted partners.</p>
+        <div class="footer-socials">
+          <a href="#" class="f-social">✈</a>
+          <a href="#" class="f-social">📸</a>
+          <a href="#" class="f-social">𝕏</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-h">Platform</div>
+        <ul class="footer-links">
+          <li><a href="#partners">VIP Partners</a></li>
+          <li><a href="#community">Community</a></li>
+          <li><a href="#cta">Join Telegram</a></li>
+          <li><a href="#why">About Us</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-h">Resources</div>
+        <ul class="footer-links">
+          <li><a href="#">Bonus Guides</a></li>
+          <li><a href="#">Casino Reviews</a></li>
+          <li><a href="#">VIP FAQ</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-h">Legal</div>
+        <ul class="footer-links">
+          <li><a href="#">Terms & Conditions</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Responsible Gaming</a></li>
+          <li><a href="#">Disclaimer</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-base">
+      <p class="footer-legal">BoomersStake is an independent gaming partnership platform providing information and referral services. We do not operate gambling platforms. All partner bonuses subject to terms and conditions. Gambling involves risk — please gamble responsibly. If gambling is causing harm, contact Gambling Help Online: 1800 858 858. Intended for persons 18+ only. BoomersStake is not responsible for decisions made based on content found on this site.</p>
+      <div class="footer-18">18+</div>
+    </div>
+  </div>
+</footer>
+
+<!-- ══════════════════════════════════════════
+     JAVASCRIPT
+     ══════════════════════════════════════════ -->
+
+  <script src="script.js"></script>
+</body>
+</html>
