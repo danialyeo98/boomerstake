@@ -1370,7 +1370,7 @@ img { display: block; max-width: 100%; }
 
   /* Staggered entry animations — applied via JS */
   opacity: 0;
-  animation: cardReveal 0.7s var(--ease-out) var(--card-delay, 0s) both;
+  animation: cardReveal 0.7s var(--ease-out) var(--card-delay, 0s) forwards;
 }
 @keyframes cardReveal {
   from { opacity: 0; transform: translateY(32px) scale(0.97); }
@@ -1856,3 +1856,181 @@ footer { border-top: 1px solid rgba(120,80,255,0.08); padding: var(--s6) 0 var(-
   background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,255,220,.07) 2px,rgba(0,255,220,.07) 4px);
   animation:scanMove 14s linear infinite;}
 @keyframes scanMove{from{background-position:0 0}to{background-position:0 200px}}
+
+
+/* ═══════════════════════════════════════════════════════════════
+   PATCH — classes used in index.html that were missing from CSS
+   Added: logo-gem-img, pcard-logo-img, pcard-mx, pcard-acts,
+          sdot, ptier variants, live-ticker system, count-up
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── Navbar: real image logo ── */
+.logo-gem-img {
+  height: 36px;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+.logo-gem-img img {
+  height: 36px;
+  width: auto;
+  max-width: 200px;
+  object-fit: contain;
+  filter: brightness(1.05);
+  display: block;
+}
+
+/* ── count-up (no visual style needed, just marker) ── */
+.count-up { display: inline-block; }
+
+/* ── Partner card: image logo box ── */
+.pcard-logo-img {
+  width: 100%;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--s2);
+  padding: 10px 8px;
+  background: rgba(0,0,0,0.32);
+  border-radius: var(--r2);
+  border: 1px solid rgba(255,255,255,0.05);
+  overflow: hidden;
+}
+.pcard-logo-img img {
+  max-width: 100%;
+  max-height: 48px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  filter: brightness(1.05);
+  transition: transform 0.3s var(--ease-out), filter 0.3s;
+  display: block;
+}
+.pcard:hover .pcard-logo-img img {
+  transform: scale(1.06);
+  filter: brightness(1.15);
+}
+
+/* ── Partner card: metrics 2-col grid ── */
+.pcard-mx {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--s1);
+  margin-bottom: var(--s3);
+}
+.pcard-mx .pm-b {
+  background: rgba(255,255,255,0.025);
+  border: 1px solid rgba(120,80,255,0.09);
+  border-radius: var(--r2);
+  padding: 12px;
+  transition: border-color 0.25s, background 0.25s;
+}
+.pcard:hover .pcard-mx .pm-b {
+  background: rgba(255,255,255,0.036);
+  border-color: rgba(120,80,255,0.18);
+}
+.pcard-mx .pm-l {
+  font-family: var(--f-mono);
+  font-size: 8px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  margin-bottom: 5px;
+}
+.pcard-mx .pm-v {
+  font-family: var(--f-display);
+  font-size: var(--display-sm);
+  font-weight: 800;
+  line-height: 1;
+}
+
+/* ── Partner card: action buttons row ── */
+.pcard-acts {
+  display: flex;
+  gap: var(--s1);
+}
+.pcard-acts .btn { flex: 1; }
+
+/* ── Status indicator dot ── */
+.sdot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  animation: sdotBlink 2.5s ease-in-out infinite;
+}
+@keyframes sdotBlink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.3; }
+}
+
+/* ── VIP tier badge ── */
+.ptier {
+  font-family: var(--f-display);
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 100px;
+  border: 1px solid;
+}
+/* Tier colour variants */
+.tg  { color: var(--g3);    border-color: rgba(251,191,36,0.35);  background: rgba(251,191,36,0.07); }
+.tp  { color: var(--p3);    border-color: rgba(192,132,252,0.35); background: rgba(192,132,252,0.07); }
+.tc  { color: var(--c3);    border-color: rgba(103,232,249,0.35); background: rgba(103,232,249,0.07); }
+.tok { color: var(--green); border-color: rgba(52,211,153,0.35);  background: rgba(52,211,153,0.07); }
+
+/* ── Live transaction ticker ── */
+.live-ticker {
+  background: rgba(8,21,41,0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-top: 1px solid rgba(110,70,255,0.14);
+  border-bottom: 1px solid rgba(110,70,255,0.14);
+  padding: 13px 0;
+  overflow: hidden;
+  position: relative;
+  z-index: 2;
+}
+.ticker-track {
+  display: flex;
+  align-items: center;
+  gap: 56px;
+  animation: tickerScroll 32s linear infinite;
+  width: max-content;
+  will-change: transform;
+}
+.ticker-track:hover { animation-play-state: paused; }
+@keyframes tickerScroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.ticker-item {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  white-space: nowrap;
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: var(--text-2);
+}
+.ticker-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.ticker-amt {
+  font-family: var(--f-display);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+.ticker-sep {
+  color: rgba(110,70,255,0.35);
+  font-size: 12px;
+  flex-shrink: 0;
+}

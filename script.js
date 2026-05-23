@@ -2,7 +2,7 @@
 
 /* ── Particle canvas with depth + shooting stars ── */
 (function(){
-  const cv=document.getElementById('bgc')||document.getElementById('bgc')||document.getElementById('bg-canvas');
+  const cv=document.getElementById('bgc');
   if(!cv)return;
   const cx=cv.getContext('2d');
   let W,H,pts=[],stars=[],tick=0,mouse={x:-999,y:-999};
@@ -116,17 +116,37 @@ document.querySelectorAll('.fade,.reveal').forEach(el => {
   roObs.observe(el);
 });
 
-/* ── Count-up ── */
-const cuObs=new IntersectionObserver(entries=>entries.forEach(e=>{
-  if(!e.isIntersecting)return;
-  const el=e.target,target=+(el.dataset.val||el.dataset.target||0),sfx=el.dataset.sfx||el.dataset.suffix||'';
-  let s=null;
-  (function step(ts){if(!s)s=ts;const p=Math.min((ts-s)/1800,1),ease=1-Math.pow(1-p,3);
-    const v=Math.floor(ease*target);el.textContent=(target>999?v.toLocaleString():v)+sfx;
-    if(p<1)requestAnimationFrame(step);})(performance.now());
-  cuObs.unobserve(el);
-}),{threshold:.5});
-document.querySelectorAll('.count-up').forEach(el=>cuObs.observe(el));
+/* ── Count-up ──
+   Runs immediately for elements visible on load (hero stats),
+   IntersectionObserver for everything below the fold.
+   ── */
+function runCountUp(el) {
+  const target = +(el.dataset.val || el.dataset.target || 0);
+  const sfx = el.dataset.sfx || el.dataset.suffix || '';
+  let s = null;
+  (function step(ts) {
+    if (!s) s = ts;
+    const p = Math.min((ts - s) / 1600, 1);
+    const ease = 1 - Math.pow(1 - p, 3);
+    const v = Math.floor(ease * target);
+    el.textContent = (target > 999 ? v.toLocaleString() : v) + sfx;
+    if (p < 1) requestAnimationFrame(step);
+  })(performance.now());
+}
+const cuObs = new IntersectionObserver(entries => entries.forEach(e => {
+  if (!e.isIntersecting) return;
+  runCountUp(e.target);
+  cuObs.unobserve(e.target);
+}), { threshold: 0, rootMargin: '0px' });
+
+document.querySelectorAll('.count-up').forEach(el => {
+  const rect = el.getBoundingClientRect();
+  if (rect.top < window.innerHeight && rect.bottom > 0) {
+    setTimeout(() => runCountUp(el), 200);
+  } else {
+    cuObs.observe(el);
+  }
+});
 
 /* ── FAQ ── */
 document.querySelectorAll('.fq-q').forEach(q=>{
