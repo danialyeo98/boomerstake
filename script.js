@@ -63,6 +63,17 @@
   resize();seed();draw();
 })();
 
+
+/* ── Remove duplicate background layers left in HTML ── */
+(function removeDuplicateBgLayers(){
+  ['bg-fog','bg-ambient','bg-vignette','bg-scanlines'].forEach(cls => {
+    const all = document.querySelectorAll('.' + cls);
+    if(all.length > 1){
+      for(let i = 1; i < all.length; i++) all[i].remove();
+    }
+  });
+})();
+
 /* ── Cursor ── */
 const cDotEl=document.getElementById('cDot'),cRingEl=document.getElementById('cRing');
 let mx=0,my=0,rx=0,ry=0;
@@ -85,11 +96,25 @@ if(hbgEl)hbgEl.addEventListener('click',()=>{if(drawerEl)drawerEl.classList.add(
 if(dCloseEl)dCloseEl.addEventListener('click',closeDrawer);
 function closeDrawer(){if(drawerEl)drawerEl.classList.remove('open');document.body.style.overflow=''}
 
-/* ── Scroll reveal ── */
-const roObs=new IntersectionObserver(entries=>entries.forEach(e=>{
-  if(e.isIntersecting){e.target.classList.add('in','visible');roObs.unobserve(e.target)}
-}),{threshold:.10});
-document.querySelectorAll('.fade,.reveal').forEach(el=>roObs.observe(el));
+/* ── Scroll reveal ──
+   FIX: hero elements use CSS animation (heroFade) not this observer.
+   Never observe anything inside #hero — causes opacity:0 freeze.
+   ── */
+const heroSection = document.getElementById('hero');
+const roObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if(e.isIntersecting){
+      e.target.classList.add('in','visible');
+      roObs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+
+document.querySelectorAll('.fade,.reveal').forEach(el => {
+  /* Skip hero section children — they animate via CSS on page load */
+  if(heroSection && heroSection.contains(el)) return;
+  roObs.observe(el);
+});
 
 /* ── Count-up ── */
 const cuObs=new IntersectionObserver(entries=>entries.forEach(e=>{
@@ -150,18 +175,61 @@ document.querySelectorAll('.pcard').forEach(card=>{
   });
 });
 
-/* ── Multi-layer parallax ── */
-let pMX=0,pMY=0,tMX=0,tMY=0;
-document.addEventListener('mousemove',e=>{tMX=(e.clientX/innerWidth-.5)*2;tMY=(e.clientY/innerHeight-.5)*2},{passive:true});
-(function pl(){
-  pMX+=(tMX-pMX)*.06;pMY+=(tMY-pMY)*.06;
-  const selectors=['.h-neb','.hero-nebula'];
-  for(const s of selectors){const el=document.querySelector(s);if(el){el.style.transform=`translate(${pMX*22}px,${pMY*16}px)`;break}}
-  const selA=['.h-aurora','.hero-aurora'];
-  for(const s of selA){const el=document.querySelector(s);if(el){el.style.transform=`translate(${pMX*12}px,${pMY*8}px)`;break}}
-  const fogEl=document.querySelector('.bg-fog');
-  if(fogEl)fogEl.style.transform=`translate(${pMX*8}px,${pMY*5}px)`;
+/* ── Multi-layer parallax ── 
+   FIX: throttled, hero-only, skipped on touch devices.
+   NEVER apply transform to position:fixed background elements
+   as it causes scroll position artifacts.
+   ─────────────────────────────────────────────────────── */
+(function initParallax(){
+  /* Skip entirely on touch-only devices — no mouse, no effect */
+  if(!window.matchMedia('(hover:hover)').matches) return;
+
+  let pMX=0, pMY=0, tMX=0, tMY=0;
+  let heroVisible = true; /* assume visible until observer says otherwise */
+  let lastFrame = 0;
+
+  document.addEventListener('mousemove', e => {
+    tMX = (e.clientX / innerWidth  - 0.5) * 2;
+    tMY = (e.clientY / innerHeight - 0.5) * 2;
+  }, { passive: true });
+
+  /* Only run parallax while hero section is in view */
+  const heroEl = document.getElementById('hero');
+  if(heroEl && 'IntersectionObserver' in window){
+    new IntersectionObserver(entries => {
+      heroVisible = entries[0].isIntersecting;
+    }, { threshold: 0 }).observe(heroEl);
+  }
+
+  function pl(ts){
+    requestAnimationFrame(pl);
+    /* Throttle to ~30fps max — prevents over-painting */
+    if(ts - lastFrame < 32) return;
+    lastFrame = ts;
+    if(!heroVisible) return;
+
+    pMX += (tMX - pMX) * 0.06;
+    pMY += (tMY - pMY) * 0.06;
+
+    /* Only move elements INSIDE the hero (not fixed background layers) */
+    const neb = document.querySelector('.hero-nebula') || document.querySelector('.h-neb');
+    if(neb) neb.style.transform = `translate(${pMX*18}px, ${pMY*12}px)`;
+
+    const aurora = document.querySelector('.hero-aurora') || document.querySelector('.h-aurora');
+    if(aurora) aurora.style.transform = `translate(${pMX*10}px, ${pMY*6}px)`;
+    /* NOTE: .bg-fog is position:fixed — do NOT transform it (causes scroll jump) */
+  }
   requestAnimationFrame(pl);
+
+  /* JS smooth scroll for anchor links — replaces CSS scroll-behavior:smooth */
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if(!target) return;
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
 })();
 
 /* ── Button: 3D tilt + ripple ── */
