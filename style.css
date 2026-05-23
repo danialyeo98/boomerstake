@@ -1820,3 +1820,101 @@ footer { border-top: 1px solid rgba(120,80,255,0.08); padding: var(--s6) 0 var(-
   background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,255,220,.07) 2px,rgba(0,255,220,.07) 4px);
   animation:scanMove 14s linear infinite;}
 @keyframes scanMove{from{background-position:0 0}to{background-position:0 200px}}
+
+/* ═══════════════════════════════════════════════
+   PARTNER LOGO IMAGE CARDS
+   ═══════════════════════════════════════════════ */
+.pcard-logo-img {
+  width: 100%;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--s3);
+  padding: 10px 8px;
+  background: rgba(0,0,0,0.35);
+  border-radius: var(--r2);
+  border: 1px solid rgba(255,255,255,0.06);
+  overflow: hidden;
+}
+.pcard-logo-img img {
+  max-width: 100%;
+  max-height: 52px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  filter: brightness(1.05) contrast(1.05);
+  transition: transform 0.3s var(--ease-out), filter 0.3s;
+}
+.pcard:hover .pcard-logo-img img {
+  transform: scale(1.06);
+  filter: brightness(1.15) contrast(1.1);
+}
+
+/* Nav logo image */
+.logo-gem-img {
+  height: 38px;
+  display: flex;
+  align-items: center;
+}
+.logo-gem-img img {
+  height: 38px;
+  width: auto;
+  max-width: 180px;
+  object-fit: contain;
+}
+
+/* Partners grid — 5 cards, last one centered */
+@media (min-width: 1025px) {
+  .partners-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .pcard:nth-child(4) { grid-column: 1; }
+  .pcard:nth-child(5) { grid-column: 2; }
+}
+
+/* ═══════════════════════════════════════════════
+   LIVE TRANSACTION TICKER
+   ═══════════════════════════════════════════════ */
+.live-ticker {
+  background: rgba(8,21,41,0.85);
+  backdrop-filter: blur(16px);
+  border-top: 1px solid rgba(110,70,255,0.15);
+  border-bottom: 1px solid rgba(110,70,255,0.15);
+  padding: 12px 0;
+  overflow: hidden;
+  position: relative;
+  z-index: 2;
+}
+.ticker-track {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  animation: tickerScroll 30s linear infinite;
+  width: max-content;
+}
+.ticker-track:hover { animation-play-state: paused; }
+.ticker-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  white-space: nowrap;
+  font-family: var(--fm);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--t3);
+}
+.ticker-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.ticker-amt { font-weight: 700; }
+.ticker-sep {
+  color: rgba(110,70,255,0.4);
+  font-size: 16px;
+}
+@keyframes tickerScroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
