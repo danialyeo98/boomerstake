@@ -101,6 +101,10 @@ function closeDrawer(){if(drawerEl)drawerEl.classList.remove('open');document.bo
    Never observe anything inside #hero — causes opacity:0 freeze.
    ── */
 const heroSection = document.getElementById('hero');
+
+/* FIX: threshold:0 triggers as soon as 1px is visible.
+   No negative rootMargin — don't penalise elements near the edge.
+   This prevents blank sections caused by missed intersection events. */
 const roObs = new IntersectionObserver(entries => {
   entries.forEach(e => {
     if(e.isIntersecting){
@@ -108,13 +112,27 @@ const roObs = new IntersectionObserver(entries => {
       roObs.unobserve(e.target);
     }
   });
-}, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+}, { threshold: 0, rootMargin: '0px 0px 0px 0px' });
 
 document.querySelectorAll('.fade,.reveal').forEach(el => {
-  /* Skip hero section children — they animate via CSS on page load */
+  /* Skip hero — animates via CSS on load */
   if(heroSection && heroSection.contains(el)) return;
-  roObs.observe(el);
+  /* Check if already visible on load */
+  const rect = el.getBoundingClientRect();
+  if(rect.top < window.innerHeight && rect.bottom > 0){
+    el.classList.add('in','visible');
+  } else {
+    roObs.observe(el);
+  }
 });
+
+/* SAFETY FALLBACK: after 2s, force-reveal any .fade still hidden.
+   Catches elements the observer missed on any browser/device. */
+setTimeout(() => {
+  document.querySelectorAll('.fade:not(.in)').forEach(el => {
+    el.classList.add('in','visible');
+  });
+}, 2000);
 
 /* ── Count-up ──
    Runs immediately for elements visible on load (hero stats),
