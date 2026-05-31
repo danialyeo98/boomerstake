@@ -345,6 +345,23 @@ button { border: none; background: none; cursor: pointer; font: inherit; }
   gap: var(--s2);
   flex-shrink: 0;
 }
+/* ── Mobile Drawer — slide from right ── */
+.drawer {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  bottom: 0;
+  width: min(320px, 85vw);
+  background: #fff;
+  z-index: 490;
+  display: flex;
+  flex-direction: column;
+  box-shadow: -4px 0 40px rgba(10,22,40,0.15);
+  transition: right 0.35s cubic-bezier(0.4,0,0.2,1);
+  overflow-y: auto;
+}
+.drawer.open { right: 0; }
+
 .hamburger {
   display: none;
   flex-direction: column;
@@ -1673,19 +1690,6 @@ footer {
 .drawer-overlay.open { display: block; }
 
 /* ── Drawer — FIXED complete redesign ── */
-.drawer {
-  position: fixed;
-  top: 0; right: -100%; bottom: 0;
-  width: min(320px, 85vw);
-  background: #fff;
-  z-index: 490;
-  display: flex; /* slide-in panel — hidden via right:-100% */
-  flex-direction: column;
-  box-shadow: -4px 0 40px rgba(10,22,40,0.15);
-  transition: right 0.35s cubic-bezier(0.4,0,0.2,1);
-  overflow-y: auto;
-}
-.drawer.open { right: 0; }
 
 /* Drawer header with logo + close button */
 .drawer-header {
@@ -2324,28 +2328,6 @@ button { border: none; background: none; cursor: pointer; font: inherit; }
 }
 
 /* Mobile drawer */
-.drawer {
-  display: none;
-  position: fixed;
-  inset: 0;
-  z-index: 490;
-  background: rgba(255,255,255,0.98);
-  backdrop-filter: blur(20px);
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: var(--s4);
-  padding-top: 80px;
-}
-.drawer.open { display: flex; }
-.drawer a {
-  font-family: var(--f-head);
-  font-size: 24px;
-  font-weight: 700;
-  color: var(--text-heading);
-  transition: color var(--t-fast);
-}
-.drawer a:hover { color: var(--blue); }
 .drawer-close {
   position: absolute;
   top: 20px; right: 24px;
@@ -3672,19 +3654,6 @@ footer {
 .drawer-overlay.open { display: block; }
 
 /* ── Drawer — FIXED complete redesign ── */
-.drawer {
-  position: fixed;
-  top: 0; right: -100%; bottom: 0;
-  width: min(320px, 85vw);
-  background: #fff;
-  z-index: 490;
-  display: flex !important; /* always in DOM */
-  flex-direction: column;
-  box-shadow: -4px 0 40px rgba(10,22,40,0.15);
-  transition: right 0.35s cubic-bezier(0.4,0,0.2,1);
-  overflow-y: auto;
-}
-.drawer.open { right: 0; }
 
 /* Drawer header with logo + close button */
 .drawer-header {
