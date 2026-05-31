@@ -4,31 +4,39 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="BoomersStake AUS — Australia's most trusted gaming partner platform. Exclusive bonuses, real rebates, 12,400+ members.">
-<meta property="og:title" content="BoomersStake AUS — Australia's #1 Gaming Partner Platform">
-<meta property="og:description" content="Exclusive partner deals, instant payouts, and VIP rewards for serious Australian players.">
 <title>BoomersStake AUS — Australia's Most Trusted Gaming Partner Platform</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- ── Mobile Drawer ── -->
+<!-- Drawer overlay (click outside to close) -->
+<div class="drawer-overlay" id="drawerOverlay"></div>
+
+<!-- Mobile Drawer -->
 <div class="drawer" id="drawer">
-  <div class="drawer-close" id="drawerClose">✕</div>
-  <a href="#partners"  onclick="closeDrawer()">Partners</a>
-  <a href="blog/index.html" onclick="closeDrawer()">Blog</a>
-  <a href="#community" onclick="closeDrawer()">Community</a>
-  <a href="#why"       onclick="closeDrawer()">Why Us</a>
-  <a href="#faq"       onclick="closeDrawer()">FAQ</a>
-  <a href="#contact"   onclick="closeDrawer()">Contact</a>
-  <a href="https://t.me/boomerstake" target="_blank" class="btn btn-tg btn-md" onclick="closeDrawer()">✈ Join Telegram</a>
+  <div class="drawer-header">
+    <img src="assets/logos/boomerstake.jpg" alt="BoomersStake" style="height:28px;object-fit:contain">
+    <button class="drawer-close" id="drawerClose" aria-label="Close menu">✕</button>
+  </div>
+  <nav class="drawer-nav">
+    <a href="#partners"  onclick="closeDrawer()">Partners</a>
+    <a href="blog/index.html" onclick="closeDrawer()">Blog</a>
+    <a href="#community" onclick="closeDrawer()">Community</a>
+    <a href="#reviews"   onclick="closeDrawer()">Reviews</a>
+    <a href="#why"       onclick="closeDrawer()">Why Us</a>
+    <a href="#faq"       onclick="closeDrawer()">FAQ</a>
+    <a href="#contact"   onclick="closeDrawer()">Contact</a>
+  </nav>
+  <div class="drawer-footer">
+    <a href="https://t.me/boomerstake" target="_blank" class="btn btn-tg btn-lg btn-full" onclick="closeDrawer()">✈ Join Telegram</a>
+    <a href="#partners" class="btn btn-primary btn-lg btn-full" onclick="closeDrawer()">Get Started →</a>
+  </div>
 </div>
 
-<!-- ════════════════════════════════════════
-     NAVBAR
-     ════════════════════════════════════════ -->
+<!-- ════════ NAVBAR ════════ -->
 <nav id="nav">
   <div class="wrap">
     <div class="nav-inner">
@@ -39,398 +47,205 @@
         <li><a href="#partners">Partners</a></li>
         <li><a href="blog/index.html">Blog</a></li>
         <li><a href="#community">Community</a></li>
+        <li><a href="#reviews">Reviews</a></li>
         <li><a href="#why">Why Us</a></li>
         <li><a href="#faq">FAQ</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
       <div class="nav-actions">
-        <a href="https://t.me/boomerstake" target="_blank" class="btn btn-ghost btn-sm nav-ghost">✈ Join Telegram</a>
+        <a href="https://t.me/boomerstake" target="_blank" class="btn btn-ghost btn-sm nav-ghost">✈ Telegram</a>
         <a href="#partners" class="btn btn-primary btn-sm">Get Started</a>
-        <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+        <button class="hamburger" id="hamburger" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
       </div>
     </div>
   </div>
 </nav>
 
-<!-- ════════════════════════════════════════
-     HERO
-     ════════════════════════════════════════ -->
+<!-- ════════ HERO ════════ -->
 <section id="hero">
   <div class="hero-bg"></div>
   <div class="hero-grid-bg"></div>
-
   <div class="wrap">
     <div class="hero-layout">
 
-      <!-- Left -->
-      <div>
+      <!-- Left text -->
+      <div class="hero-left">
         <div class="hero-badge">
           <span class="badge-dot"></span>
           🇦🇺 Australia's #1 Gaming Partner Platform
         </div>
-
         <h1 class="hero-headline">
           Australia's Most<br>
           <span class="accent">Trusted Gaming</span><br>
           Partner Platform
         </h1>
-
-        <p class="hero-sub">
-          Real bonuses. Real rebates. Backed by 12,400+ Australian members. We connect you to the best gaming platforms with deals you won't find anywhere else.
-        </p>
-
+        <p class="hero-sub">Real bonuses. Real rebates. Backed by 12,400+ Australian members. We connect you to the best gaming platforms with deals you won't find anywhere else.</p>
         <div class="hero-ctas">
-          <a href="#partners" class="btn btn-primary btn-xl">
-            Explore Partners →
-          </a>
-          <a href="https://t.me/boomerstake" target="_blank" class="btn btn-tg btn-xl">
-            ✈ Join Telegram
-          </a>
+          <a href="#partners" class="btn btn-primary btn-xl">Explore Partners →</a>
+          <a href="https://t.me/boomerstake" target="_blank" class="btn btn-tg btn-xl">✈ Join Telegram</a>
         </div>
-
         <div class="hero-stats">
-          <div class="hstat">
-            <span class="hstat-val count-up" data-val="12400" data-sfx="+">12,400+</span>
-            <span class="hstat-lbl">VIP Members</span>
-          </div>
-          <div class="hstat">
-            <span class="hstat-val count-up" data-val="98" data-sfx="%">98%</span>
-            <span class="hstat-lbl">Payout Rate</span>
-          </div>
-          <div class="hstat">
-            <span class="hstat-val">24/7</span>
-            <span class="hstat-lbl">VIP Support</span>
-          </div>
+          <div class="hstat"><span class="hstat-val count-up" data-val="12400" data-sfx="+">12,400+</span><span class="hstat-lbl">VIP Members</span></div>
+          <div class="hstat"><span class="hstat-val count-up" data-val="98" data-sfx="%">98%</span><span class="hstat-lbl">Payout Rate</span></div>
+          <div class="hstat"><span class="hstat-val">24/7</span><span class="hstat-lbl">VIP Support</span></div>
+          <div class="hstat"><span class="hstat-val count-up" data-val="5" data-sfx="">5</span><span class="hstat-lbl">Elite Partners</span></div>
         </div>
       </div>
 
-      <!-- Right — Dashboard card -->
+      <!-- Right dashboard card -->
       <div class="hero-right">
         <div class="hero-dashboard">
-          <div class="dashboard-header">
-            <div class="dashboard-title">Today's Activity</div>
-            <div class="dashboard-live">
-              <div class="live-dot"></div>
-              Live
-            </div>
+          <div class="db-top">
+            <div class="db-title">Today's Activity</div>
+            <div class="db-live"><div class="live-dot"></div>Live</div>
           </div>
-
-          <div class="dashboard-rows">
-            <div class="dashboard-row">
-              <div class="dr-left">
-                <div class="dr-icon" style="background:#E8F4FF">💰</div>
-                <div class="dr-label">Total Paid Out Today</div>
-              </div>
-              <div class="dr-val" style="color:var(--green)">$84,220</div>
-            </div>
-            <div class="dashboard-row">
-              <div class="dr-left">
-                <div class="dr-icon" style="background:#EEF2FF">👥</div>
-                <div class="dr-label">Active Members</div>
-              </div>
-              <div class="dr-val" style="color:var(--blue)">3,847</div>
-            </div>
-            <div class="dashboard-row">
-              <div class="dr-left">
-                <div class="dr-icon" style="background:#FFF8E8">⭐</div>
-                <div class="dr-label">Top Exclusive Bonus</div>
-              </div>
-              <div class="dr-val" style="color:var(--gold)">$10,000</div>
-            </div>
+          <div class="db-rows">
+            <div class="db-row"><div class="db-icon" style="background:#E8F4FF">💰</div><span class="db-lbl">Total Paid Out</span><span class="db-val" style="color:#00C896">$84,220</span></div>
+            <div class="db-row"><div class="db-icon" style="background:#EEF2FF">👥</div><span class="db-lbl">Active Members</span><span class="db-val" style="color:#0066FF">3,847</span></div>
+            <div class="db-row"><div class="db-icon" style="background:#FFF8E8">⭐</div><span class="db-lbl">Top Bonus Today</span><span class="db-val" style="color:#C9A84C">$10,000</span></div>
           </div>
-
-          <div class="dashboard-partner-strip">
-            <div class="dps-label">Trusted Partners</div>
-            <div class="dps-logos">
-              <img src="assets/logos/boomerstake.jpg" alt="BoomersStake" class="dps-logo">
-              <img src="assets/logos/rtpvictory.jpg" alt="RTPVictory" class="dps-logo">
-              <img src="assets/logos/rtppokies.jpg" alt="RTPPokies" class="dps-logo">
-              <img src="assets/logos/rtpcunt.jpg" alt="RTPCunt" class="dps-logo">
-              <img src="assets/logos/rtpmeth.jpg" alt="RTPMeth" class="dps-logo">
+          <div class="db-partners">
+            <div class="db-partners-lbl">Our Partners</div>
+            <div class="db-logos">
+              <img src="assets/logos/boomerstake.jpg" alt="BoomersStake" class="db-logo">
+              <img src="assets/logos/rtpvictory.jpg" alt="RTPVictory" class="db-logo">
+              <img src="assets/logos/rtppokies.jpg" alt="RTPPokies" class="db-logo">
+              <img src="assets/logos/rtpcunt.jpg" alt="RTPCunt" class="db-logo">
+              <img src="assets/logos/rtpmeth.jpg" alt="RTPMeth" class="db-logo">
             </div>
           </div>
         </div>
-
-        <!-- Floating card -->
-        <div class="hero-float-card">
-          <div class="fc-label">New payout</div>
-          <div class="fc-val">+$2,840</div>
-        </div>
+        <div class="hero-float"><div class="hf-lbl">Latest payout</div><div class="hf-val">+$2,840 ✓</div></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ════════════════════════════════════════
-     TRUST STRIP
-     ════════════════════════════════════════ -->
+<!-- ════════ TRUST STRIP ════════ -->
 <section id="trust">
   <div class="wrap">
     <div class="trust-grid">
-      <div class="trust-item">
-        <div class="trust-ico">🔐</div>
-        <div class="trust-name">Verified Partners</div>
-        <div class="trust-desc">40-point audit on every platform</div>
-      </div>
-      <div class="trust-item">
-        <div class="trust-ico">⚡</div>
-        <div class="trust-name">Instant Withdrawals</div>
-        <div class="trust-desc">Fast payouts, no excuses</div>
-      </div>
-      <div class="trust-item">
-        <div class="trust-ico">💎</div>
-        <div class="trust-name">VIP Support</div>
-        <div class="trust-desc">24/7 dedicated account access</div>
-      </div>
-      <div class="trust-item">
-        <div class="trust-ico">🛡️</div>
-        <div class="trust-name">Secure Platform</div>
-        <div class="trust-desc">Bank-grade encryption throughout</div>
-      </div>
-      <div class="trust-item">
-        <div class="trust-ico">🇦🇺</div>
-        <div class="trust-name">Aussie Community</div>
-        <div class="trust-desc">Made in Australia, for Australians</div>
-      </div>
+      <div class="trust-item"><div class="trust-ico">🔐</div><div class="trust-name">Verified Partners</div><div class="trust-desc">40-point audit on every platform</div></div>
+      <div class="trust-item"><div class="trust-ico">⚡</div><div class="trust-name">Instant Withdrawals</div><div class="trust-desc">Fast payouts, no excuses</div></div>
+      <div class="trust-item"><div class="trust-ico">💎</div><div class="trust-name">VIP Support</div><div class="trust-desc">24/7 dedicated account access</div></div>
+      <div class="trust-item"><div class="trust-ico">🛡️</div><div class="trust-name">Secure Platform</div><div class="trust-desc">Bank-grade encryption</div></div>
+      <div class="trust-item"><div class="trust-ico">🇦🇺</div><div class="trust-name">Aussie Community</div><div class="trust-desc">Made for Australians</div></div>
     </div>
   </div>
 </section>
 
-<!-- ════════════════════════════════════════
-     LIVE TICKER
-     ════════════════════════════════════════ -->
+<!-- ════════ LIVE TICKER ════════ -->
 <div class="live-ticker">
   <div class="ticker-track" id="mainTicker">
     <div class="ticker-item"><div class="ticker-dot" style="background:#00C896"></div><span>@aussie_g claimed</span><span class="ticker-amt">AUD$38.88 at BoomersStake</span></div>
     <div class="ticker-sep">◆</div>
     <div class="ticker-item"><div class="ticker-dot" style="background:#0066FF"></div><span>@perth_king won</span><span class="ticker-amt">AUD$5,200 at RTPPokies</span></div>
     <div class="ticker-sep">◆</div>
-    <div class="ticker-item"><div class="ticker-dot" style="background:#00C896"></div><span>@mel_roller cashout</span><span class="ticker-amt">AUD$1,800 RTPVictory88</span></div>
+    <div class="ticker-item"><div class="ticker-dot" style="background:#C9A84C"></div><span>@mel_roller cashout</span><span class="ticker-amt">AUD$1,800 RTPVictory88</span></div>
     <div class="ticker-sep">◆</div>
-    <div class="ticker-item"><div class="ticker-dot" style="background:#C9A84C"></div><span>@sydney99 claimed</span><span class="ticker-amt">150% bonus at RTPCunt</span></div>
+    <div class="ticker-item"><div class="ticker-dot" style="background:#00C896"></div><span>@sydney99 claimed</span><span class="ticker-amt">150% bonus at RTPCunt</span></div>
     <div class="ticker-sep">◆</div>
-    <div class="ticker-item"><div class="ticker-dot" style="background:#00C896"></div><span>@brissy_vip claimed</span><span class="ticker-amt">AUD$28 free at RTPMeth</span></div>
+    <div class="ticker-item"><div class="ticker-dot" style="background:#C9A84C"></div><span>@brissy_vip</span><span class="ticker-amt">AUD$28 free at RTPMeth</span></div>
     <div class="ticker-sep">◆</div>
-    <div class="ticker-item"><div class="ticker-dot" style="background:#C9A84C"></div><span>@qld_roller won</span><span class="ticker-amt">AUD$12,000 jackpot RTPPokies</span></div>
+    <div class="ticker-item"><div class="ticker-dot" style="background:#0066FF"></div><span>@qld_roller won</span><span class="ticker-amt">AUD$12,000 jackpot</span></div>
     <div class="ticker-sep">◆</div>
-    <!-- duplicate for loop -->
+    <!-- duplicate -->
     <div class="ticker-item"><div class="ticker-dot" style="background:#00C896"></div><span>@aussie_g claimed</span><span class="ticker-amt">AUD$38.88 at BoomersStake</span></div>
     <div class="ticker-sep">◆</div>
     <div class="ticker-item"><div class="ticker-dot" style="background:#0066FF"></div><span>@perth_king won</span><span class="ticker-amt">AUD$5,200 at RTPPokies</span></div>
     <div class="ticker-sep">◆</div>
-    <div class="ticker-item"><div class="ticker-dot" style="background:#00C896"></div><span>@mel_roller cashout</span><span class="ticker-amt">AUD$1,800 RTPVictory88</span></div>
+    <div class="ticker-item"><div class="ticker-dot" style="background:#C9A84C"></div><span>@mel_roller cashout</span><span class="ticker-amt">AUD$1,800 RTPVictory88</span></div>
     <div class="ticker-sep">◆</div>
-    <div class="ticker-item"><div class="ticker-dot" style="background:#C9A84C"></div><span>@sydney99 claimed</span><span class="ticker-amt">150% bonus at RTPCunt</span></div>
+    <div class="ticker-item"><div class="ticker-dot" style="background:#00C896"></div><span>@sydney99 claimed</span><span class="ticker-amt">150% bonus at RTPCunt</span></div>
     <div class="ticker-sep">◆</div>
-    <div class="ticker-item"><div class="ticker-dot" style="background:#00C896"></div><span>@brissy_vip claimed</span><span class="ticker-amt">AUD$28 free at RTPMeth</span></div>
+    <div class="ticker-item"><div class="ticker-dot" style="background:#C9A84C"></div><span>@brissy_vip</span><span class="ticker-amt">AUD$28 free at RTPMeth</span></div>
     <div class="ticker-sep">◆</div>
-    <div class="ticker-item"><div class="ticker-dot" style="background:#C9A84C"></div><span>@qld_roller won</span><span class="ticker-amt">AUD$12,000 jackpot RTPPokies</span></div>
+    <div class="ticker-item"><div class="ticker-dot" style="background:#0066FF"></div><span>@qld_roller won</span><span class="ticker-amt">AUD$12,000 jackpot</span></div>
     <div class="ticker-sep">◆</div>
   </div>
 </div>
 
-<!-- ════════════════════════════════════════
-     PARTNERS
-     ════════════════════════════════════════ -->
-<section id="partners" class="section">
+<!-- ════════ PARTNERS — NEW LAYOUT ════════ -->
+<section id="partners" class="section" style="background:#F7F9FC">
   <div class="wrap">
-    <div class="partners-header">
-      <div>
-        <div class="eyebrow">Exclusive Network</div>
-        <h2 class="h-xl">Our Partner Platforms</h2>
-        <p class="lead mt-2">Handpicked platforms with bonuses exclusive to the BoomersStake network.</p>
-      </div>
-      <div>
-        <a href="#cta" class="btn btn-ghost btn-md">View All Partners →</a>
+    <div class="section-head">
+      <div><div class="eyebrow">Exclusive Network</div><h2 class="h-xl">Our Partner Platforms</h2><p class="lead" style="margin-top:12px;max-width:500px">Handpicked platforms with bonuses exclusive to the BoomersStake network — deals you won't find anywhere else.</p></div>
+      <a href="#cta" class="btn btn-ghost btn-md">View All →</a>
+    </div>
+
+    <!-- Featured card (BoomersStake) full-width on top -->
+    <div class="pcard-featured-wrap fade">
+      <div class="pcard pcard-hero">
+        <div class="pcard-hero-left">
+          <div class="feat-badges"><span class="badge-hot">🔥 HOT</span><span class="badge-new">⭐ NEW</span><span class="badge-feat">✦ FEATURED</span></div>
+          <div class="pcard-logo-img" style="width:220px;height:70px;margin:16px 0 20px">
+            <img src="assets/logos/boomerstake.jpg" alt="BoomersStake AUS">
+          </div>
+          <h3 class="pcard-big-name">BoomersStake AUS</h3>
+          <p class="pcard-big-desc">Australia's premier pokies platform. Exclusive welcome bonus — no deposit required. Instant payout, AUS licensed, VIP community included.</p>
+          <div class="pcard-checks">
+            <span><span class="ck">✓</span>AUS Licensed</span>
+            <span><span class="ck">✓</span>Instant Payout</span>
+            <span><span class="ck">✓</span>No Deposit Needed</span>
+            <span><span class="ck">✓</span>VIP Support 24/7</span>
+          </div>
+          <div class="pcard-hero-btns">
+            <a href="partners/boomerstake.html" class="btn btn-ghost btn-md">View Full Deal</a>
+            <a href="https://boomerstakeaus.com" target="_blank" class="btn btn-primary btn-lg">Register Now →</a>
+            <a href="https://t.me/boomerstake" target="_blank" class="btn btn-tg btn-md">✈ Telegram</a>
+          </div>
+        </div>
+        <div class="pcard-hero-right">
+          <div class="pcard-hero-stat"><div class="phs-label">Welcome Bonus</div><div class="phs-val" style="color:#C9A84C">AUD$38.88</div><div class="phs-sub">No deposit required</div></div>
+          <div class="pcard-hero-stat"><div class="phs-label">Platform Type</div><div class="phs-val">Pokies</div></div>
+          <div class="pcard-hero-stat"><div class="phs-label">Payout Speed</div><div class="phs-val" style="color:#00C896">Instant ⚡</div></div>
+          <div class="pcard-hero-rating"><div style="color:#C9A84C;font-size:22px;letter-spacing:3px">★★★★★</div><div style="font-size:13px;color:#7A8BA0;margin-top:4px">5.0 — BoomersStake Verified</div></div>
+        </div>
       </div>
     </div>
 
-    <div class="partners-grid">
+    <!-- 4 remaining cards in grid -->
+    <div class="partners-grid" style="margin-top:20px">
 
-      <!-- Card 1: BoomersStake — FEATURED with always-on animation -->
-      <div class="pcard featured fade fd1" style="--card-delay:0.05s">
-        <div class="pcard-inner">
-          <!-- HOT + NEW badges -->
-          <div class="featured-badges">
-            <span class="badge-hot">🔥 HOT</span>
-            <span class="badge-new">⭐ NEW</span>
-          </div>
-          <div class="pcard-header">
-            <div class="pcard-status">
-              <div class="status-dot" style="background:#00C896"></div>
-              Active
-            </div>
-            <div class="pcard-tier tier-gold">⭐ VIP Exclusive</div>
-          </div>
-          <div class="pcard-body">
-            <div class="pcard-logo-img">
-              <img src="assets/logos/boomerstake.jpg" alt="BoomersStake AUS">
-            </div>
-            <div class="pcard-metrics">
-              <div class="pm-b">
-                <div class="pm-l">Welcome Bonus</div>
-                <div class="pm-v" style="color:var(--gold)">AUD$38.88</div>
-              </div>
-              <div class="pm-b">
-                <div class="pm-l">Platform</div>
-                <div class="pm-v">Pokies</div>
-              </div>
-            </div>
-            <div class="pcard-features">
-              <div class="pcard-feat"><span class="feat-tick">✓</span>AUS Licensed</div>
-              <div class="pcard-feat"><span class="feat-tick">✓</span>Instant Pay</div>
-              <div class="pcard-feat"><span class="feat-tick">✓</span>VIP Support</div>
-            </div>
-            <div class="pcard-actions">
-              <a href="partners/boomerstake.html" class="btn btn-primary btn-sm">View Deal</a>
-              <a href="https://boomerstakeaus.com" target="_blank" class="btn btn-primary btn-sm">Register</a>
-              <a href="https://t.me/boomerstake" target="_blank" class="btn btn-tg btn-sm">✈ TG</a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Card 2: RTPVictory -->
-      <div class="pcard fade fd2" style="--card-delay:0.14s">
-        <div class="pcard-header">
-          <div class="pcard-status">
-            <div class="status-dot" style="background:#0066FF"></div>
-            <span style="color:#0066FF">Live</span>
-          </div>
-          <div class="pcard-tier tier-blue">🏆 Staff Pick</div>
-        </div>
+      <div class="pcard fade fd1" style="--card-delay:0.08s">
+        <div class="pcard-header"><div class="pcard-status"><div class="status-dot" style="background:#0066FF"></div><span style="color:#0066FF">Live</span></div><div class="pcard-tier tier-blue">🏆 Staff Pick</div></div>
         <div class="pcard-body">
-          <div class="pcard-logo-img">
-            <img src="assets/logos/rtpvictory.jpg" alt="RTPVictory88">
-          </div>
-          <div class="pcard-metrics">
-            <div class="pm-b">
-              <div class="pm-l">Welcome Bonus</div>
-              <div class="pm-v" style="color:var(--green)">AUD$30</div>
-            </div>
-            <div class="pm-b">
-              <div class="pm-l">Platform</div>
-              <div class="pm-v">Casino</div>
-            </div>
-          </div>
-          <div class="pcard-features">
-            <div class="pcard-feat"><span class="feat-tick">✓</span>Free Bonus</div>
-            <div class="pcard-feat"><span class="feat-tick">✓</span>Fast KYC</div>
-            <div class="pcard-feat"><span class="feat-tick">✓</span>AUS Friendly</div>
-          </div>
-          <div class="pcard-actions">
-            <a href="partners/rtpvictory.html" class="btn btn-primary btn-sm">View Deal</a>
-            <a href="https://rtpvictory88.com" target="_blank" class="btn btn-primary btn-sm">Register</a>
-            <a href="https://t.me/boomerstake" target="_blank" class="btn btn-tg btn-sm">✈ TG</a>
-          </div>
+          <div class="pcard-logo-img"><img src="assets/logos/rtpvictory.jpg" alt="RTPVictory88"></div>
+          <div class="pcard-metrics"><div class="pm-b"><div class="pm-l">Welcome Bonus</div><div class="pm-v" style="color:#00C896">AUD$30</div></div><div class="pm-b"><div class="pm-l">Type</div><div class="pm-v">Casino</div></div></div>
+          <div class="pcard-features"><div class="pcard-feat"><span class="feat-tick">✓</span>Free Bonus</div><div class="pcard-feat"><span class="feat-tick">✓</span>Fast KYC</div><div class="pcard-feat"><span class="feat-tick">✓</span>AUS Friendly</div></div>
+          <div class="pcard-actions"><a href="partners/rtpvictory.html" class="btn btn-ghost btn-sm">View Deal</a><a href="https://rtpvictory88.com" target="_blank" class="btn btn-primary btn-sm">Register</a><a href="https://t.me/boomerstake" target="_blank" class="btn btn-tg btn-sm">✈</a></div>
         </div>
       </div>
 
-      <!-- Card 3: RTPPokies -->
-      <div class="pcard fade fd3" style="--card-delay:0.23s">
-        <div class="pcard-header">
-          <div class="pcard-status">
-            <div class="status-dot" style="background:#C9A84C"></div>
-            <span style="color:#C9A84C">Hot Deal</span>
-          </div>
-          <div class="pcard-tier tier-gold">💎 Premium</div>
-        </div>
+      <div class="pcard fade fd2" style="--card-delay:0.16s">
+        <div class="pcard-header"><div class="pcard-status"><div class="status-dot" style="background:#C9A84C"></div><span style="color:#C9A84C">Hot Deal</span></div><div class="pcard-tier tier-gold">💎 Premium</div></div>
         <div class="pcard-body">
-          <div class="pcard-logo-img">
-            <img src="assets/logos/rtppokies.jpg" alt="RTPPokies">
-          </div>
-          <div class="pcard-metrics">
-            <div class="pm-b">
-              <div class="pm-l">Welcome Bonus</div>
-              <div class="pm-v" style="color:var(--gold)">AUD$38.88</div>
-            </div>
-            <div class="pm-b">
-              <div class="pm-l">Rollover Rebate</div>
-              <div class="pm-v" style="color:var(--green)">0.9%</div>
-            </div>
-          </div>
-          <div class="pcard-features">
-            <div class="pcard-feat"><span class="feat-tick">✓</span>Rollover Rebate</div>
-            <div class="pcard-feat"><span class="feat-tick">✓</span>Slots Focus</div>
-            <div class="pcard-feat"><span class="feat-tick">✓</span>VIP Program</div>
-          </div>
-          <div class="pcard-actions">
-            <a href="partners/rtppokies.html" class="btn btn-primary btn-sm">View Deal</a>
-            <a href="https://rtppokies.com" target="_blank" class="btn btn-primary btn-sm">Register</a>
-            <a href="https://t.me/boomerstake" target="_blank" class="btn btn-tg btn-sm">✈ TG</a>
-          </div>
+          <div class="pcard-logo-img"><img src="assets/logos/rtppokies.jpg" alt="RTPPokies"></div>
+          <div class="pcard-metrics"><div class="pm-b"><div class="pm-l">Welcome Bonus</div><div class="pm-v" style="color:#C9A84C">AUD$38.88</div></div><div class="pm-b"><div class="pm-l">Daily Rebate</div><div class="pm-v" style="color:#00C896">0.9%</div></div></div>
+          <div class="pcard-features"><div class="pcard-feat"><span class="feat-tick">✓</span>Rollover Rebate</div><div class="pcard-feat"><span class="feat-tick">✓</span>5,000+ Slots</div><div class="pcard-feat"><span class="feat-tick">✓</span>VIP Program</div></div>
+          <div class="pcard-actions"><a href="partners/rtppokies.html" class="btn btn-ghost btn-sm">View Deal</a><a href="https://rtppokies.com" target="_blank" class="btn btn-primary btn-sm">Register</a><a href="https://t.me/boomerstake" target="_blank" class="btn btn-tg btn-sm">✈</a></div>
         </div>
       </div>
 
-      <!-- Card 4: RTPCunt -->
+      <div class="pcard fade fd3" style="--card-delay:0.24s">
+        <div class="pcard-header"><div class="pcard-status"><div class="status-dot" style="background:#0066FF"></div><span style="color:#0066FF">Trending</span></div><div class="pcard-tier tier-orange">⚡ High Roller</div></div>
+        <div class="pcard-body">
+          <div class="pcard-logo-img"><img src="assets/logos/rtpcunt.jpg" alt="RTPCunt"></div>
+          <div class="pcard-metrics"><div class="pm-b"><div class="pm-l">Welcome Bonus</div><div class="pm-v" style="color:#0066FF">150%</div></div><div class="pm-b"><div class="pm-l">Weekly Rebate</div><div class="pm-v" style="color:#00C896">5%</div></div></div>
+          <div class="pcard-features"><div class="pcard-feat"><span class="feat-tick">✓</span>150% Match</div><div class="pcard-feat"><span class="feat-tick">✓</span>Weekly Rebate</div><div class="pcard-feat"><span class="feat-tick">✓</span>Crypto OK</div></div>
+          <div class="pcard-actions"><a href="partners/rtpcunt.html" class="btn btn-ghost btn-sm">View Deal</a><a href="https://rtpcnt.com" target="_blank" class="btn btn-primary btn-sm">Register</a><a href="https://t.me/boomerstake" target="_blank" class="btn btn-tg btn-sm">✈</a></div>
+        </div>
+      </div>
+
       <div class="pcard fade fd4" style="--card-delay:0.32s">
-        <div class="pcard-header">
-          <div class="pcard-status">
-            <div class="status-dot" style="background:#0066FF"></div>
-            <span style="color:#0066FF">Trending</span>
-          </div>
-          <div class="pcard-tier tier-orange">⚡ Hot</div>
-        </div>
+        <div class="pcard-header"><div class="pcard-status"><div class="status-dot" style="background:#00C896"></div><span style="color:#00C896">New Deal</span></div><div class="pcard-tier tier-green">🎯 No Deposit</div></div>
         <div class="pcard-body">
-          <div class="pcard-logo-img">
-            <img src="assets/logos/rtpcunt.jpg" alt="RTPCunt">
-          </div>
-          <div class="pcard-metrics">
-            <div class="pm-b">
-              <div class="pm-l">Welcome Bonus</div>
-              <div class="pm-v" style="color:var(--blue)">150%</div>
-            </div>
-            <div class="pm-b">
-              <div class="pm-l">Weekly Rebate</div>
-              <div class="pm-v" style="color:var(--green)">5%</div>
-            </div>
-          </div>
-          <div class="pcard-features">
-            <div class="pcard-feat"><span class="feat-tick">✓</span>150% Match</div>
-            <div class="pcard-feat"><span class="feat-tick">✓</span>Weekly Rebate</div>
-            <div class="pcard-feat"><span class="feat-tick">✓</span>Crypto OK</div>
-          </div>
-          <div class="pcard-actions">
-            <a href="partners/rtpcunt.html" class="btn btn-primary btn-sm">View Deal</a>
-            <a href="https://rtpcnt.com" target="_blank" class="btn btn-primary btn-sm">Register</a>
-            <a href="https://t.me/boomerstake" target="_blank" class="btn btn-tg btn-sm">✈ TG</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Card 5: RTPMeth -->
-      <div class="pcard fade fd5" style="--card-delay:0.41s">
-        <div class="pcard-header">
-          <div class="pcard-status">
-            <div class="status-dot" style="background:#00C896"></div>
-            <span style="color:#00C896">New Deal</span>
-          </div>
-          <div class="pcard-tier tier-green">🎯 New</div>
-        </div>
-        <div class="pcard-body">
-          <div class="pcard-logo-img">
-            <img src="assets/logos/rtpmeth.jpg" alt="RTPMeth">
-          </div>
-          <div class="pcard-metrics">
-            <div class="pm-b">
-              <div class="pm-l">Free Register</div>
-              <div class="pm-v" style="color:var(--green)">AUD$28</div>
-            </div>
-            <div class="pm-b">
-              <div class="pm-l">Daily Rebate</div>
-              <div class="pm-v" style="color:var(--blue)">0.8%</div>
-            </div>
-          </div>
-          <div class="pcard-features">
-            <div class="pcard-feat"><span class="feat-tick">✓</span>No Deposit</div>
-            <div class="pcard-feat"><span class="feat-tick">✓</span>Daily Rebate</div>
-            <div class="pcard-feat"><span class="feat-tick">✓</span>AUS Players</div>
-          </div>
-          <div class="pcard-actions">
-            <a href="partners/rtpmeth.html" class="btn btn-primary btn-sm">View Deal</a>
-            <a href="https://rtpmeth.com" target="_blank" class="btn btn-primary btn-sm">Register</a>
-            <a href="https://t.me/boomerstake" target="_blank" class="btn btn-tg btn-sm">✈ TG</a>
-          </div>
+          <div class="pcard-logo-img"><img src="assets/logos/rtpmeth.jpg" alt="RTPMeth"></div>
+          <div class="pcard-metrics"><div class="pm-b"><div class="pm-l">Free Register</div><div class="pm-v" style="color:#00C896">AUD$28</div></div><div class="pm-b"><div class="pm-l">Daily Rebate</div><div class="pm-v" style="color:#0066FF">0.8%</div></div></div>
+          <div class="pcard-features"><div class="pcard-feat"><span class="feat-tick">✓</span>No Deposit</div><div class="pcard-feat"><span class="feat-tick">✓</span>Daily Rebate</div><div class="pcard-feat"><span class="feat-tick">✓</span>AUS Players</div></div>
+          <div class="pcard-actions"><a href="partners/rtpmeth.html" class="btn btn-ghost btn-sm">View Deal</a><a href="https://rtpmeth.com" target="_blank" class="btn btn-primary btn-sm">Register</a><a href="https://t.me/boomerstake" target="_blank" class="btn btn-tg btn-sm">✈</a></div>
         </div>
       </div>
 
@@ -438,267 +253,221 @@
   </div>
 </section>
 
-<div class="hr"></div>
-
-<!-- ════════════════════════════════════════
-     COMMUNITY
-     ════════════════════════════════════════ -->
+<!-- ════════ COMMUNITY + STATS — NEW LAYOUT ════════ -->
 <section id="community" class="section">
   <div class="wrap">
-    <div class="comm-intro">
-      <div class="eyebrow">The Network</div>
-      <h2 class="h-xl">Our Community</h2>
-      <p class="lead mt-2">A growing network of Australian VIP players, paying out every single day.</p>
+    <div class="section-head center"><div class="eyebrow">The Network</div><h2 class="h-xl">Our Community</h2><p class="lead" style="margin-top:12px;max-width:480px;margin-left:auto;margin-right:auto">A growing network of Australian VIP players, paying out every single day.</p></div>
+
+    <!-- Stats row — horizontal -->
+    <div class="stats-row fade">
+      <div class="stat-big"><div class="sb-val" style="color:#0066FF">12,400+</div><div class="sb-lbl">VIP Members</div></div>
+      <div class="stat-big"><div class="sb-val" style="color:#00C896">$840K+</div><div class="sb-lbl">Paid This Month</div></div>
+      <div class="stat-big"><div class="sb-val" style="color:#C9A84C">98.6%</div><div class="sb-lbl">Payout Rate</div></div>
+      <div class="stat-big"><div class="sb-val" style="color:#0066FF">6</div><div class="sb-lbl">Elite Partners</div></div>
+      <div class="stat-big"><div class="sb-val" style="color:#00C896">24/7</div><div class="sb-lbl">VIP Support</div></div>
     </div>
 
-    <div class="comm-grid">
-
-      <div class="comm-card fade fd1">
-        <div class="eyebrow mb-3">Live Stats</div>
-        <div class="cc-title">By The Numbers</div>
-        <div class="stat-quad">
-          <div class="sq-box">
-            <span class="sq-num" style="color:var(--blue)">12,400+</span>
-            <span class="sq-lbl">VIP Members</span>
-          </div>
-          <div class="sq-box">
-            <span class="sq-num" style="color:var(--green)">$840K+</span>
-            <span class="sq-lbl">Paid This Month</span>
-          </div>
-          <div class="sq-box">
-            <span class="sq-num" style="color:var(--gold)">98.6%</span>
-            <span class="sq-lbl">Payout Rate</span>
-          </div>
-          <div class="sq-box">
-            <span class="sq-num" style="color:var(--blue)">6</span>
-            <span class="sq-lbl">Elite Partners</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="comm-card fade fd2">
+    <!-- Two col: live feed + bar chart -->
+    <div class="comm-two-col">
+      <div class="comm-card fade">
         <div class="feed-live"><div class="feed-live-dot"></div>LIVE ACTIVITY</div>
-        <div class="cc-title mb-2">VIP Feed</div>
+        <div class="cc-title" style="margin-bottom:16px">VIP Feed</div>
         <div class="feed" id="feed">
-          <div class="feed-row"><div class="fdot" style="background:#00C896"></div><span class="ftxt">🏆 @aussie_vip388 won big at BoomersStake</span><span class="famt" style="color:var(--green)">+$2,840</span></div>
-          <div class="feed-row"><div class="fdot" style="background:#0066FF"></div><span class="ftxt">⚡ @sydney_roller registered via link</span><span class="famt" style="color:var(--blue)">New</span></div>
-          <div class="feed-row"><div class="fdot" style="background:#C9A84C"></div><span class="ftxt">💎 @mel_vip777 claimed VIP cashback</span><span class="famt" style="color:var(--gold)">+$560</span></div>
-          <div class="feed-row"><div class="fdot" style="background:#00C896"></div><span class="ftxt">👑 @royalstaker99 hit jackpot — RTPPokies</span><span class="famt" style="color:var(--green)">+$12,000</span></div>
-          <div class="feed-row"><div class="fdot" style="background:#0066FF"></div><span class="ftxt">🎯 @qld_roller claimed 500 free spins</span><span class="famt" style="color:var(--blue)">500 FS</span></div>
+          <div class="feed-row"><div class="fdot" style="background:#00C896"></div><span class="ftxt">🏆 @aussie_vip388 won big at BoomersStake</span><span class="famt" style="color:#00C896">+$2,840</span></div>
+          <div class="feed-row"><div class="fdot" style="background:#0066FF"></div><span class="ftxt">⚡ @sydney_roller registered via link</span><span class="famt" style="color:#0066FF">New</span></div>
+          <div class="feed-row"><div class="fdot" style="background:#C9A84C"></div><span class="ftxt">💎 @mel_vip777 claimed VIP cashback</span><span class="famt" style="color:#C9A84C">+$560</span></div>
+          <div class="feed-row"><div class="fdot" style="background:#00C896"></div><span class="ftxt">👑 @royalstaker hit jackpot — RTPPokies</span><span class="famt" style="color:#00C896">+$12,000</span></div>
+          <div class="feed-row"><div class="fdot" style="background:#0066FF"></div><span class="ftxt">🎯 @qld_roller claimed free spins</span><span class="famt" style="color:#0066FF">500 FS</span></div>
         </div>
       </div>
-
-      <div class="comm-card fade fd3">
-        <div class="eyebrow mb-3">Revenue</div>
-        <div class="cc-title">Daily Payouts</div>
-        <div class="barchart" style="margin-top:var(--s3)">
+      <div class="comm-card fade">
+        <div class="eyebrow" style="margin-bottom:12px">Revenue</div>
+        <div class="cc-title" style="margin-bottom:20px">Daily Payouts</div>
+        <div class="barchart">
           <div class="barcol"><div class="barfill" style="height:60%;background:linear-gradient(180deg,#0066FF,#3385FF);opacity:.7"></div><span class="barlbl">MON</span></div>
           <div class="barcol"><div class="barfill" style="height:76%;background:linear-gradient(180deg,#0066FF,#3385FF)"></div><span class="barlbl">TUE</span></div>
           <div class="barcol"><div class="barfill" style="height:55%;background:linear-gradient(180deg,#0066FF,#3385FF);opacity:.7"></div><span class="barlbl">WED</span></div>
           <div class="barcol"><div class="barfill" style="height:88%;background:linear-gradient(180deg,#0066FF,#3385FF)"></div><span class="barlbl">THU</span></div>
-          <div class="barcol"><div class="barfill" style="height:96%;background:linear-gradient(180deg,#C9A84C,#E8C866);box-shadow:0 0 10px rgba(201,168,76,0.4)"></div><span class="barlbl">FRI</span></div>
-          <div class="barcol"><div class="barfill" style="height:100%;background:linear-gradient(180deg,#00C896,#00A87A);box-shadow:0 0 10px rgba(0,200,150,0.4)"></div><span class="barlbl">SAT</span></div>
+          <div class="barcol"><div class="barfill" style="height:96%;background:linear-gradient(180deg,#C9A84C,#E8C866);box-shadow:0 0 8px rgba(201,168,76,.3)"></div><span class="barlbl">FRI</span></div>
+          <div class="barcol"><div class="barfill" style="height:100%;background:linear-gradient(180deg,#00C896,#00A87A);box-shadow:0 0 8px rgba(0,200,150,.3)"></div><span class="barlbl">SAT</span></div>
           <div class="barcol"><div class="barfill" style="height:82%;background:linear-gradient(180deg,#0066FF,#00C896)"></div><span class="barlbl">SUN</span></div>
         </div>
-        <div style="margin-top:var(--s3);font-size:14px;color:var(--text-muted)">Average daily: <span style="color:var(--text-heading);font-family:var(--f-head);font-weight:800;font-size:18px">$28,400</span></div>
+        <div style="margin-top:16px;font-size:14px;color:#7A8BA0">Weekly avg: <strong style="color:#0A1628;font-family:'Plus Jakarta Sans',sans-serif;font-size:20px">$28,400</strong></div>
       </div>
+    </div>
 
-      <div class="comm-card tg-comm fade fd4">
-        <span class="tg-ico">✈</span>
-        <span class="tg-count">12,400+</span>
-        <span class="tg-sub">Members in our private VIP Telegram — daily deals, exclusive codes, live support</span>
-        <a href="https://t.me/boomerstake" target="_blank" class="btn btn-white btn-lg btn-full">
-          ✈ Join Free Now
-        </a>
-        <div style="margin-top:var(--s2);font-size:12px;color:rgba(255,255,255,0.6);font-weight:600;letter-spacing:0.08em;text-transform:uppercase">Free · Instant · Private</div>
+    <!-- Telegram CTA strip -->
+    <div class="tg-strip fade">
+      <div class="tg-strip-left">
+        <div class="tg-strip-num">12,400+</div>
+        <div class="tg-strip-lbl">Members in our private VIP Telegram</div>
+        <p class="tg-strip-desc">Daily bonus codes, exclusive deals, live payout alerts, and direct VIP support — all in one free private community.</p>
       </div>
-
+      <div class="tg-strip-right">
+        <div class="tg-strip-features">
+          <div><span>✓</span> Daily bonus codes</div>
+          <div><span>✓</span> Exclusive promo alerts</div>
+          <div><span>✓</span> Live win notifications</div>
+          <div><span>✓</span> Direct VIP support</div>
+        </div>
+        <a href="https://t.me/boomerstake" target="_blank" class="btn btn-white btn-lg">✈ Join Free Now</a>
+        <div style="font-size:11px;color:rgba(255,255,255,0.6);margin-top:8px;text-transform:uppercase;letter-spacing:.1em">Free · Instant · Private</div>
+      </div>
     </div>
   </div>
 </section>
 
-<div class="hr"></div>
+<!-- ════════ CUSTOMER REVIEWS — NEW SECTION ════════ -->
+<section id="reviews" class="section" style="background:#F7F9FC">
+  <div class="wrap">
+    <div class="section-head center"><div class="eyebrow">What Members Say</div><h2 class="h-xl">Real Reviews from<br>Real Australians</h2></div>
+    <div class="reviews-grid">
 
-<!-- ════════════════════════════════════════
-     WHY US
-     ════════════════════════════════════════ -->
+      <div class="review-card fade fd1">
+        <div class="rev-stars">★★★★★</div>
+        <p class="rev-text">"Switched from another platform and the difference is massive. Got my AUD$38.88 within 2 minutes of signing up, no questions asked. The Telegram community is genuinely helpful too."</p>
+        <div class="rev-author"><div class="rev-avatar" style="background:#0066FF">JK</div><div><div class="rev-name">James K.</div><div class="rev-meta">Melbourne, VIC · BoomersStake Member</div></div></div>
+      </div>
+
+      <div class="review-card fade fd2">
+        <div class="rev-stars">★★★★★</div>
+        <p class="rev-text">"The 0.9% daily rebate at RTPPokies adds up fast. I've been playing for 3 months and the rebates alone have covered a lot. Withdrawals are always next day at worst."</p>
+        <div class="rev-author"><div class="rev-avatar" style="background:#00C896">SM</div><div><div class="rev-name">Sarah M.</div><div class="rev-meta">Sydney, NSW · RTPPokies Member</div></div></div>
+      </div>
+
+      <div class="review-card fade fd3">
+        <div class="rev-stars">★★★★★</div>
+        <p class="rev-text">"Was skeptical at first but the 150% welcome bonus at RTPCunt was real — credited instantly. The weekly 5% rebate is basically free money every Monday morning."</p>
+        <div class="rev-author"><div class="rev-avatar" style="background:#C9A84C">TP</div><div><div class="rev-name">Tom P.</div><div class="rev-meta">Brisbane, QLD · RTPCunt Member</div></div></div>
+      </div>
+
+      <div class="review-card fade fd4">
+        <div class="rev-stars">★★★★☆</div>
+        <p class="rev-text">"RTPMeth's no-deposit bonus got me started without risking anything. Good variety of games and the daily rebate is a nice touch. Support team replied within an hour."</p>
+        <div class="rev-author"><div class="rev-avatar" style="background:#7C3AED">AL</div><div><div class="rev-name">Anna L.</div><div class="rev-meta">Perth, WA · RTPMeth Member</div></div></div>
+      </div>
+
+      <div class="review-card fade fd5">
+        <div class="rev-stars">★★★★★</div>
+        <p class="rev-text">"BoomersStake Telegram group posts deals before anyone else. I've claimed bonuses that were never on the casino website. Genuinely exclusive — not just marketing."</p>
+        <div class="rev-author"><div class="rev-avatar" style="background:#0066FF">RC</div><div><div class="rev-name">Ryan C.</div><div class="rev-meta">Gold Coast, QLD · VIP Member</div></div></div>
+      </div>
+
+      <div class="review-card fade fd6">
+        <div class="rev-stars">★★★★★</div>
+        <p class="rev-text">"Had a withdrawal issue with RTPVictory — messaged BoomersStake support and they sorted it directly with the casino in under 3 hours. That advocacy is worth everything."</p>
+        <div class="rev-author"><div class="rev-avatar" style="background:#00C896">MH</div><div><div class="rev-name">Michelle H.</div><div class="rev-meta">Adelaide, SA · RTPVictory Member</div></div></div>
+      </div>
+
+    </div>
+
+    <!-- Rating summary bar -->
+    <div class="rating-summary fade">
+      <div class="rs-left">
+        <div class="rs-big">4.9</div>
+        <div class="rs-stars">★★★★★</div>
+        <div class="rs-count">Based on 847 reviews</div>
+      </div>
+      <div class="rs-bars">
+        <div class="rs-bar-row"><span>5 ★</span><div class="rs-bar"><div class="rs-fill" style="width:88%;background:#0066FF"></div></div><span>88%</span></div>
+        <div class="rs-bar-row"><span>4 ★</span><div class="rs-bar"><div class="rs-fill" style="width:9%;background:#0066FF;opacity:.7"></div></div><span>9%</span></div>
+        <div class="rs-bar-row"><span>3 ★</span><div class="rs-bar"><div class="rs-fill" style="width:2%;background:#CBD5E1"></div></div><span>2%</span></div>
+        <div class="rs-bar-row"><span>2 ★</span><div class="rs-bar"><div class="rs-fill" style="width:1%;background:#CBD5E1"></div></div><span>1%</span></div>
+        <div class="rs-bar-row"><span>1 ★</span><div class="rs-bar"><div class="rs-fill" style="width:0%;background:#CBD5E1"></div></div><span>0%</span></div>
+      </div>
+      <div class="rs-badges">
+        <div class="rs-badge"><div class="rsb-val">12,400+</div><div class="rsb-lbl">Active Members</div></div>
+        <div class="rs-badge"><div class="rsb-val">98%</div><div class="rsb-lbl">Recommend Us</div></div>
+        <div class="rs-badge"><div class="rsb-val">4.9★</div><div class="rsb-lbl">Average Rating</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ WHY US — NEW LAYOUT ════════ -->
 <section id="why" class="section">
   <div class="wrap">
-    <div class="why-header">
-      <div>
+    <div class="why-two-col">
+      <div class="why-left fade">
         <div class="eyebrow">Our Edge</div>
-        <h2 class="h-xl">Why BoomersStake?</h2>
+        <h2 class="h-xl">Why BoomersStake<br>is Different</h2>
+        <p class="lead" style="margin-top:16px">We don't just list platforms. We negotiate exclusive deals, verify every partner, and back every recommendation with 12,400+ members' trust.</p>
+        <div class="why-trust-logos">
+          <div class="wtl-label">Trusted by members from</div>
+          <div class="wtl-states"><span>🏙 Sydney</span><span>🌆 Melbourne</span><span>☀️ Brisbane</span><span>🌴 Perth</span><span>🍷 Adelaide</span></div>
+        </div>
+        <a href="#partners" class="btn btn-primary btn-lg" style="margin-top:28px">Browse Partners →</a>
       </div>
-      <div>
-        <p class="lead">We don't just list platforms. We negotiate exclusive deals, verify legitimacy, and back every recommendation with our VIP network's trust.</p>
-      </div>
-    </div>
-    <div class="why-grid">
-      <div class="wc fade fd1">
-        <div class="wc-icon">🔬</div>
-        <div class="wc-title">Rigorous Vetting</div>
-        <p class="wc-desc">Every partner undergoes a 40-point audit covering licensing, payouts, support, and fairness before we endorse them.</p>
-      </div>
-      <div class="wc fade fd2">
-        <div class="wc-icon">💰</div>
-        <div class="wc-title">Exclusive Bonuses</div>
-        <p class="wc-desc">Our deals are negotiated directly. The bonuses here exist only through BoomersStake — you won't find them on the casino's own site.</p>
-      </div>
-      <div class="wc fade fd3">
-        <div class="wc-icon">📡</div>
-        <div class="wc-title">Real-Time Updates</div>
-        <p class="wc-desc">New bonuses and promo codes hit our Telegram first — updated daily by our Australia-based team.</p>
-      </div>
-      <div class="wc fade fd4">
-        <div class="wc-icon">🤝</div>
-        <div class="wc-title">VIP Advocacy</div>
-        <p class="wc-desc">Withdrawal issue? We escalate directly to the operator on your behalf. Our partnerships give you access regular players don't have.</p>
-      </div>
-      <div class="wc fade fd5">
-        <div class="wc-icon">🇦🇺</div>
-        <div class="wc-title">100% Australian</div>
-        <p class="wc-desc">Built by Australians for Australians. We understand the local banking, the landscape, and what Aussie players need.</p>
-      </div>
-      <div class="wc fade fd6">
-        <div class="wc-icon">🔒</div>
-        <div class="wc-title">Privacy First</div>
-        <p class="wc-desc">Your data stays yours. We never sell member information and our encrypted Telegram community is fully private.</p>
+      <div class="why-right">
+        <div class="why-grid">
+          <div class="wc fade fd1"><div class="wc-icon">🔬</div><div class="wc-title">Rigorous Vetting</div><p class="wc-desc">40-point audit on every partner — licensing, payouts, support, fairness.</p></div>
+          <div class="wc fade fd2"><div class="wc-icon">💰</div><div class="wc-title">Exclusive Bonuses</div><p class="wc-desc">Deals negotiated directly — not available on the casino's own site.</p></div>
+          <div class="wc fade fd3"><div class="wc-icon">📡</div><div class="wc-title">Daily Updates</div><p class="wc-desc">New codes hit our Telegram first, updated daily by our Aussie team.</p></div>
+          <div class="wc fade fd4"><div class="wc-icon">🤝</div><div class="wc-title">VIP Advocacy</div><p class="wc-desc">Withdrawal issue? We escalate directly to the operator for you.</p></div>
+          <div class="wc fade fd5"><div class="wc-icon">🇦🇺</div><div class="wc-title">100% Australian</div><p class="wc-desc">Built by Australians — AUD banking, local support, local knowledge.</p></div>
+          <div class="wc fade fd6"><div class="wc-icon">🔒</div><div class="wc-title">Privacy First</div><p class="wc-desc">Your data stays yours. We never sell member information.</p></div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<div class="hr"></div>
-
-<!-- ════════════════════════════════════════
-     CONTACT FORM
-     ════════════════════════════════════════ -->
-<section id="contact" class="section">
+<!-- ════════ CONTACT ════════ -->
+<section id="contact" class="section" style="background:#F7F9FC">
   <div class="wrap">
     <div class="contact-grid">
-
-      <div>
+      <div class="fade">
         <div class="eyebrow">Get In Touch</div>
         <div class="contact-info-title">We're Here<br>to Help</div>
-        <p class="contact-desc">Have questions about our partners or bonuses? Our team is available 24/7 to assist Australian members.</p>
-
-        <div class="contact-detail">
-          <div class="cd-icon">📧</div>
-          <div>
-            <div class="cd-label">Email Us</div>
-            <div class="cd-val">boomergroup@gmail.com</div>
-          </div>
-        </div>
-        <div class="contact-detail">
-          <div class="cd-icon">✈</div>
-          <div>
-            <div class="cd-label">Telegram Community</div>
-            <div class="cd-val">t.me/boomerstake</div>
-          </div>
-        </div>
-        <div class="contact-response">
-          <span>✓</span> Usually within 2 hours
-        </div>
+        <p class="contact-desc">Have questions? Our team is available 24/7 for Australian members.</p>
+        <div class="contact-detail"><div class="cd-icon">📧</div><div><div class="cd-label">Email Us</div><div class="cd-val">boomergroup@gmail.com</div></div></div>
+        <div class="contact-detail"><div class="cd-icon">✈</div><div><div class="cd-label">Telegram</div><div class="cd-val">t.me/boomerstake</div></div></div>
+        <div class="contact-response"><span>✓</span> Usually within 2 hours</div>
       </div>
-
       <div class="contact-form-card fade">
         <div class="form-title">Send Us a Message</div>
         <form action="mailto:boomergroup@gmail.com" method="POST" enctype="text/plain">
           <div class="form-row-2">
-            <div class="form-row">
-              <label class="form-label" for="name">Your Name</label>
-              <input class="form-input" type="text" id="name" name="name" placeholder="Enter your name" required>
-            </div>
-            <div class="form-row">
-              <label class="form-label" for="email">Email Address</label>
-              <input class="form-input" type="email" id="email" name="email" placeholder="Enter your email" required>
-            </div>
+            <div class="form-row"><label class="form-label">Your Name</label><input class="form-input" type="text" name="name" placeholder="Your name" required></div>
+            <div class="form-row"><label class="form-label">Email Address</label><input class="form-input" type="email" name="email" placeholder="Your email" required></div>
           </div>
           <div class="form-row">
-            <label class="form-label" for="subject">Enquiry Type</label>
-            <select class="form-select" id="subject" name="subject">
-              <option value="">Select a subject</option>
-              <option value="general">General Enquiry</option>
-              <option value="bonus">Bonus / Deal Question</option>
-              <option value="partner">Partnership</option>
-              <option value="complaint">Complaint</option>
-              <option value="support">VIP Support</option>
-            </select>
+            <label class="form-label">Enquiry Type</label>
+            <select class="form-select" name="subject"><option value="">Select a subject</option><option>General Enquiry</option><option>Bonus / Deal Question</option><option>Partnership</option><option>Complaint</option><option>VIP Support</option></select>
           </div>
-          <div class="form-row">
-            <label class="form-label" for="message">Message</label>
-            <textarea class="form-textarea" id="message" name="message" placeholder="Tell us how we can help..." required></textarea>
-          </div>
-          <div class="form-submit">
-            <button type="submit" class="btn btn-primary btn-lg btn-full">Send Message →</button>
-          </div>
+          <div class="form-row"><label class="form-label">Message</label><textarea class="form-textarea" name="message" placeholder="How can we help?" required></textarea></div>
+          <div class="form-submit"><button type="submit" class="btn btn-primary btn-lg btn-full">Send Message →</button></div>
         </form>
       </div>
-
     </div>
   </div>
 </section>
 
-<div class="hr"></div>
-
-<!-- ════════════════════════════════════════
-     FAQ
-     ════════════════════════════════════════ -->
+<!-- ════════ FAQ ════════ -->
 <section id="faq" class="section">
   <div class="wrap-tight">
-    <div class="faq-header">
-      <div class="eyebrow">Got Questions</div>
-      <h2 class="h-xl">Frequently Asked</h2>
-    </div>
+    <div class="section-head center"><div class="eyebrow">Got Questions</div><h2 class="h-xl">Frequently Asked</h2></div>
     <div class="faq-list">
-      <div class="fq fade fd1">
-        <div class="fq-q">Is BoomersStake free to join?<div class="fq-icon">▾</div></div>
-        <div class="fq-a"><p>Yes, completely free. Our Telegram community, partner links, and exclusive bonus codes are all free to access. We earn through partnership arrangements — you pay us nothing directly.</p></div>
-      </div>
-      <div class="fq fade fd2">
-        <div class="fq-q">Are these bonuses actually exclusive?<div class="fq-icon">▾</div></div>
-        <div class="fq-a"><p>In most cases, yes. We negotiate directly with each operator to secure deals not publicly available. Registering through our links gets you enhanced welcome packages, reduced wagering, or instant VIP status you wouldn't get going direct.</p></div>
-      </div>
-      <div class="fq fade fd3">
-        <div class="fq-q">How do I access VIP deals?<div class="fq-icon">▾</div></div>
-        <div class="fq-a"><p>Join our Telegram (free and instant) and click the registration links we provide. Bonuses activate automatically. Some also use promo codes — posted daily in the Telegram channel.</p></div>
-      </div>
-      <div class="fq fade fd4">
-        <div class="fq-q">Which payment methods are accepted?<div class="fq-icon">▾</div></div>
-        <div class="fq-a"><p>Our partners accept Visa/Mastercard, bank transfer, PayID, POLi, and most major cryptocurrencies. Methods vary by platform — check each partner page for specifics.</p></div>
-      </div>
-      <div class="fq fade fd5">
-        <div class="fq-q">What if I have a withdrawal problem?<div class="fq-icon">▾</div></div>
-        <div class="fq-a"><p>Contact us directly via Telegram and we'll escalate to the operator on your behalf. Our direct relationships with VIP and compliance teams give us leverage regular players don't have.</p></div>
-      </div>
-      <div class="fq fade fd6">
-        <div class="fq-q">Is gambling legal in Australia?<div class="fq-icon">▾</div></div>
-        <div class="fq-a"><p>Online gambling law in Australia is complex. We recommend verifying the licensing and terms of any platform in your jurisdiction. All listed platforms operate under legitimate international gaming licences. Please gamble responsibly.</p></div>
-      </div>
+      <div class="fq fade fd1"><div class="fq-q">Is BoomersStake free to join?<div class="fq-icon">▾</div></div><div class="fq-a"><p>Yes, completely free. Our Telegram community, partner links, and exclusive bonus codes are all free to access. We earn through partnership arrangements — you pay us nothing directly.</p></div></div>
+      <div class="fq fade fd2"><div class="fq-q">Are these bonuses actually exclusive?<div class="fq-icon">▾</div></div><div class="fq-a"><p>In most cases, yes. We negotiate directly with each operator to secure deals not publicly available. Registering through our links gets you enhanced packages you wouldn't get going direct.</p></div></div>
+      <div class="fq fade fd3"><div class="fq-q">How do I access VIP deals?<div class="fq-icon">▾</div></div><div class="fq-a"><p>Join our Telegram (free and instant) and click the registration links we provide. Bonuses activate automatically. Some also use promo codes — posted daily in our Telegram.</p></div></div>
+      <div class="fq fade fd4"><div class="fq-q">What payment methods are accepted?<div class="fq-icon">▾</div></div><div class="fq-a"><p>Our partners accept Visa/Mastercard, bank transfer, PayID, POLi, and most major cryptocurrencies. Methods vary by platform — check each partner page for details.</p></div></div>
+      <div class="fq fade fd5"><div class="fq-q">What if I have a withdrawal problem?<div class="fq-icon">▾</div></div><div class="fq-a"><p>Contact us via Telegram and we'll escalate to the operator on your behalf. Our direct relationships give us leverage regular players don't have. We take this seriously.</p></div></div>
+      <div class="fq fade fd6"><div class="fq-q">Is gambling legal in Australia?<div class="fq-icon">▾</div></div><div class="fq-a"><p>Online gambling law in Australia is complex. We recommend verifying the licensing and terms of any platform in your jurisdiction. All listed platforms operate under international gaming licences. Please gamble responsibly.</p></div></div>
     </div>
   </div>
 </section>
 
-<!-- ════════════════════════════════════════
-     CTA
-     ════════════════════════════════════════ -->
-<section id="cta" class="section">
+<!-- ════════ CTA ════════ -->
+<section id="cta" class="section" style="background:#0A1628">
   <div class="wrap">
     <div class="cta-box">
       <div class="cta-badge">✦ Limited Spots Available</div>
-      <h2 class="cta-title">
-        Join Australia's<br>Elite VIP Network
-      </h2>
-      <p class="cta-sub">
-        Thousands of Australians already access exclusive deals through our Telegram. Free, instant, private.
-      </p>
+      <h2 class="cta-title">Join Australia's<br>Elite VIP Network</h2>
+      <p class="cta-sub">Thousands of Australians already access exclusive deals through our Telegram. Free, instant, private.</p>
       <div class="cta-btns">
-        <a href="https://t.me/boomerstake" target="_blank" class="btn btn-white btn-xl">
-          ✈ Join Our Telegram
-        </a>
-        <a href="#partners" class="btn btn-outline-white btn-xl">
-          Browse Partners
-        </a>
+        <a href="https://t.me/boomerstake" target="_blank" class="btn btn-white btn-xl">✈ Join Our Telegram</a>
+        <a href="#partners" class="btn btn-outline-white btn-xl">Browse Partners</a>
       </div>
       <div class="cta-proof">
         <div class="proof-item">🆓 Always Free</div>
@@ -710,16 +479,12 @@
   </div>
 </section>
 
-<!-- ════════════════════════════════════════
-     FOOTER
-     ════════════════════════════════════════ -->
+<!-- ════════ FOOTER ════════ -->
 <footer>
   <div class="wrap">
     <div class="footer-grid">
       <div>
-        <div class="footer-logo">
-          <img src="assets/logos/boomerstake.jpg" alt="BoomersStake AUS">
-        </div>
+        <div class="footer-logo"><img src="assets/logos/boomerstake.jpg" alt="BoomersStake AUS"></div>
         <p class="footer-desc">Australia's premier gaming partner platform. Exclusive deals, real community, trusted partners.</p>
         <div class="footer-socials">
           <a href="https://t.me/boomerstake" target="_blank" class="f-social">✈</a>
@@ -727,33 +492,9 @@
           <a href="#" class="f-social">𝕏</a>
         </div>
       </div>
-      <div>
-        <div class="footer-col-h">Platform</div>
-        <ul class="footer-links">
-          <li><a href="#partners">VIP Partners</a></li>
-          <li><a href="#community">Community</a></li>
-          <li><a href="https://t.me/boomerstake" target="_blank">Join Telegram</a></li>
-          <li><a href="#why">About Us</a></li>
-        </ul>
-      </div>
-      <div>
-        <div class="footer-col-h">Resources</div>
-        <ul class="footer-links">
-          <li><a href="blog/index.html">Blog</a></li>
-          <li><a href="blog/how-to-claim-bonuses.html">Bonus Guides</a></li>
-          <li><a href="#faq">FAQ</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </div>
-      <div>
-        <div class="footer-col-h">Legal</div>
-        <ul class="footer-links">
-          <li><a href="#">Terms & Conditions</a></li>
-          <li><a href="#">Privacy Policy</a></li>
-          <li><a href="blog/responsible-gambling-guide.html">Responsible Gaming</a></li>
-          <li><a href="#">Disclaimer</a></li>
-        </ul>
-      </div>
+      <div><div class="footer-col-h">Platform</div><ul class="footer-links"><li><a href="#partners">VIP Partners</a></li><li><a href="#community">Community</a></li><li><a href="https://t.me/boomerstake" target="_blank">Join Telegram</a></li><li><a href="#why">About Us</a></li></ul></div>
+      <div><div class="footer-col-h">Resources</div><ul class="footer-links"><li><a href="blog/index.html">Blog</a></li><li><a href="blog/how-to-claim-bonuses.html">Bonus Guides</a></li><li><a href="#reviews">Reviews</a></li><li><a href="#contact">Contact</a></li></ul></div>
+      <div><div class="footer-col-h">Legal</div><ul class="footer-links"><li><a href="#">Terms & Conditions</a></li><li><a href="#">Privacy Policy</a></li><li><a href="blog/responsible-gambling-guide.html">Responsible Gaming</a></li><li><a href="#">Disclaimer</a></li></ul></div>
     </div>
     <div class="footer-base">
       <p class="footer-legal">BoomersStake is an independent gaming partnership platform providing information and referral services. We do not operate gambling platforms. All partner bonuses subject to terms and conditions. Gambling involves risk — please gamble responsibly. If gambling is causing harm, contact Gambling Help Online: 1800 858 858. Intended for persons 18+ only.</p>
