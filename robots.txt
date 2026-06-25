@@ -1,0 +1,7 @@
+# robots.txt — BoomersStake AUS
+# All crawlers welcome; nothing disallowed.
+
+User-agent: *
+Allow: /
+
+Sitemap: https://boomergroupau.com/sitemap.xml
