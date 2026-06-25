@@ -12,6 +12,9 @@
 </head>
 <body>
 
+<!-- Scroll progress bar -->
+<div class="scroll-progress"></div>
+
 <!-- Drawer overlay (click outside to close) -->
 <div class="drawer-overlay" id="drawerOverlay"></div>
 
@@ -67,6 +70,7 @@
 <section id="hero">
   <div class="hero-bg"></div>
   <div class="hero-grid-bg"></div>
+  <div class="hero-perspective-floor"></div>
 
   <!-- 3D floating casino elements -->
   <div class="hero-3d-layer" aria-hidden="true">
@@ -216,7 +220,7 @@
       </div>
 
       <!-- Right dashboard card -->
-      <div class="hero-right">
+      <div class="hero-right" id="heroDashboard">
         <div class="hero-dashboard">
           <div class="db-top">
             <div class="db-title">Today's Activity</div>
@@ -444,37 +448,37 @@
     <div class="section-head center"><div class="eyebrow">What Members Say</div><h2 class="h-xl">Real Reviews from<br>Real Australians</h2></div>
     <div class="reviews-grid">
 
-      <div class="review-card fade fd1">
+      <div class="review-card wow-card">
         <div class="rev-stars">★★★★★</div>
         <p class="rev-text">"Switched from another platform and the difference is massive. Got my AUD$38.88 within 2 minutes of signing up, no questions asked. The Telegram community is genuinely helpful too."</p>
         <div class="rev-author"><div class="rev-avatar" style="background:#0066FF">JK</div><div><div class="rev-name">James K.</div><div class="rev-meta">Melbourne, VIC · BoomersStake Member</div></div></div>
       </div>
 
-      <div class="review-card fade fd2">
+      <div class="review-card wow-card">
         <div class="rev-stars">★★★★★</div>
         <p class="rev-text">"The 0.9% daily rebate at RTPPokies adds up fast. I've been playing for 3 months and the rebates alone have covered a lot. Withdrawals are always next day at worst."</p>
         <div class="rev-author"><div class="rev-avatar" style="background:#00C896">SM</div><div><div class="rev-name">Sarah M.</div><div class="rev-meta">Sydney, NSW · RTPPokies Member</div></div></div>
       </div>
 
-      <div class="review-card fade fd3">
+      <div class="review-card wow-card">
         <div class="rev-stars">★★★★★</div>
         <p class="rev-text">"Was skeptical at first but the 150% welcome bonus at RTPCunt was real — credited instantly. The weekly 5% rebate is basically free money every Monday morning."</p>
         <div class="rev-author"><div class="rev-avatar" style="background:#C9A84C">TP</div><div><div class="rev-name">Tom P.</div><div class="rev-meta">Brisbane, QLD · RTPCunt Member</div></div></div>
       </div>
 
-      <div class="review-card fade fd4">
+      <div class="review-card wow-card">
         <div class="rev-stars">★★★★☆</div>
         <p class="rev-text">"RTPMeth's no-deposit bonus got me started without risking anything. Good variety of games and the daily rebate is a nice touch. Support team replied within an hour."</p>
         <div class="rev-author"><div class="rev-avatar" style="background:#7C3AED">AL</div><div><div class="rev-name">Anna L.</div><div class="rev-meta">Perth, WA · RTPMeth Member</div></div></div>
       </div>
 
-      <div class="review-card fade fd5">
+      <div class="review-card wow-card">
         <div class="rev-stars">★★★★★</div>
         <p class="rev-text">"BoomersStake Telegram group posts deals before anyone else. I've claimed bonuses that were never on the casino website. Genuinely exclusive — not just marketing."</p>
         <div class="rev-author"><div class="rev-avatar" style="background:#0066FF">RC</div><div><div class="rev-name">Ryan C.</div><div class="rev-meta">Gold Coast, QLD · VIP Member</div></div></div>
       </div>
 
-      <div class="review-card fade fd6">
+      <div class="review-card wow-card">
         <div class="rev-stars">★★★★★</div>
         <p class="rev-text">"Had a withdrawal issue with RTPVictory — messaged BoomersStake support and they sorted it directly with the casino in under 3 hours. That advocacy is worth everything."</p>
         <div class="rev-author"><div class="rev-avatar" style="background:#00C896">MH</div><div><div class="rev-name">Michelle H.</div><div class="rev-meta">Adelaide, SA · RTPVictory Member</div></div></div>
@@ -521,12 +525,12 @@
       </div>
       <div class="why-right">
         <div class="why-grid">
-          <div class="wc fade fd1"><div class="wc-icon">🔬</div><div class="wc-title">Rigorous Vetting</div><p class="wc-desc">40-point audit on every partner — licensing, payouts, support, fairness.</p></div>
-          <div class="wc fade fd2"><div class="wc-icon">💰</div><div class="wc-title">Exclusive Bonuses</div><p class="wc-desc">Deals negotiated directly — not available on the casino's own site.</p></div>
-          <div class="wc fade fd3"><div class="wc-icon">📡</div><div class="wc-title">Daily Updates</div><p class="wc-desc">New codes hit our Telegram first, updated daily by our Aussie team.</p></div>
-          <div class="wc fade fd4"><div class="wc-icon">🤝</div><div class="wc-title">VIP Advocacy</div><p class="wc-desc">Withdrawal issue? We escalate directly to the operator for you.</p></div>
-          <div class="wc fade fd5"><div class="wc-icon">🇦🇺</div><div class="wc-title">100% Australian</div><p class="wc-desc">Built by Australians — AUD banking, local support, local knowledge.</p></div>
-          <div class="wc fade fd6"><div class="wc-icon">🔒</div><div class="wc-title">Privacy First</div><p class="wc-desc">Your data stays yours. We never sell member information.</p></div>
+          <div class="wc wow-card"><div class="wc-icon">🔬</div><div class="wc-title">Rigorous Vetting</div><p class="wc-desc">40-point audit on every partner — licensing, payouts, support, fairness.</p></div>
+          <div class="wc wow-card"><div class="wc-icon">💰</div><div class="wc-title">Exclusive Bonuses</div><p class="wc-desc">Deals negotiated directly — not available on the casino's own site.</p></div>
+          <div class="wc wow-card"><div class="wc-icon">📡</div><div class="wc-title">Daily Updates</div><p class="wc-desc">New codes hit our Telegram first, updated daily by our Aussie team.</p></div>
+          <div class="wc wow-card"><div class="wc-icon">🤝</div><div class="wc-title">VIP Advocacy</div><p class="wc-desc">Withdrawal issue? We escalate directly to the operator for you.</p></div>
+          <div class="wc wow-card"><div class="wc-icon">🇦🇺</div><div class="wc-title">100% Australian</div><p class="wc-desc">Built by Australians — AUD banking, local support, local knowledge.</p></div>
+          <div class="wc wow-card"><div class="wc-icon">🔒</div><div class="wc-title">Privacy First</div><p class="wc-desc">Your data stays yours. We never sell member information.</p></div>
         </div>
       </div>
     </div>

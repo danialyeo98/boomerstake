@@ -1,6 +1,15 @@
 
 /* BoomersStake AUS — script.js */
 
+/* ── Page entrance (reveal body) — runs first so a later error can't keep it hidden ── */
+(function revealBody() {
+  const show = () => { document.body.style.opacity = '1'; };
+  if (document.readyState === 'complete') show();
+  window.addEventListener('load', show);
+  document.addEventListener('DOMContentLoaded', show);
+  setTimeout(show, 1500); /* safety net */
+})();
+
 /* ── Navbar scroll ── */
 const nav = document.getElementById('nav');
 window.addEventListener('scroll', () => {
@@ -164,7 +173,7 @@ setInterval(() => {
 
 /* ── Partner card 3D tilt ── */
 if(window.matchMedia('(hover:hover)').matches) {
-  document.querySelectorAll('.pcard').forEach(card => {
+  document.querySelectorAll('.pcard:not(.pcard-hero)').forEach(card => {
     card.addEventListener('mousemove', e => {
       const r  = card.getBoundingClientRect();
       const dx = (e.clientX - r.left - r.width/2)  / (r.width/2);
@@ -209,4 +218,119 @@ if(form) {
       setTimeout(() => { btn.textContent = 'Send Message →'; btn.style.background = ''; }, 3500);
     }
   });
+}
+
+/* ════════════════════════════════════════
+   PREMIUM WOW EFFECTS
+   ════════════════════════════════════════ */
+
+/* 1 — Scroll progress bar */
+const scrollProgress = document.querySelector('.scroll-progress');
+if (scrollProgress) {
+  const onScrollProgress = () => {
+    const el = document.documentElement;
+    const max = el.scrollHeight - el.clientHeight;
+    const p = max > 0 ? el.scrollTop / max : 0;
+    scrollProgress.style.transform = 'scaleX(' + p + ')';
+  };
+  window.addEventListener('scroll', onScrollProgress, { passive: true });
+  onScrollProgress();
+}
+
+/* 3 — Hero dashboard mouse tilt */
+const heroDashboard = document.getElementById('heroDashboard');
+if (heroDashboard && window.matchMedia('(hover:hover)').matches) {
+  const dashCard = heroDashboard.querySelector('.hero-dashboard') || heroDashboard;
+  heroDashboard.addEventListener('mousemove', e => {
+    const r = heroDashboard.getBoundingClientRect();
+    const dx = (e.clientX - r.left - r.width / 2)  / (r.width / 2);
+    const dy = (e.clientY - r.top  - r.height / 2) / (r.height / 2);
+    dashCard.style.transform = `perspective(800px) rotateY(${dx * 8}deg) rotateX(${-dy * 8}deg)`;
+  });
+  heroDashboard.addEventListener('mouseleave', () => { dashCard.style.transform = ''; });
+}
+
+/* 4 — Review/why cards: staggered reveal (80ms apart) */
+const wowObs = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+    const el = entry.target;
+    const sibs = el.parentElement ? [...el.parentElement.querySelectorAll('.wow-card')] : [el];
+    const i = Math.max(0, sibs.indexOf(el));
+    el.style.transitionDelay = (i * 80) + 'ms';
+    el.classList.add('wow-in');
+    wowObs.unobserve(el);
+  });
+}, { threshold: 0.15 });
+document.querySelectorAll('.wow-card').forEach(el => wowObs.observe(el));
+/* Safety net — never leave a card invisible */
+setTimeout(() => {
+  document.querySelectorAll('.wow-card:not(.wow-in)').forEach(el => el.classList.add('wow-in'));
+}, 2200);
+
+/* 5 — Stats counter (.sb-val) with ease-out cubic */
+function animateSbVal(el) {
+  const raw = el.textContent.trim();
+  if (raw.indexOf('/') !== -1) return;                 // skip values like "24/7"
+  const m = raw.match(/^([^\d-]*)([\d,]*\.?\d+)(.*)$/);
+  if (!m) return;
+  const prefix = m[1], numStr = m[2], suffix = m[3];
+  const hasComma = numStr.indexOf(',') !== -1;
+  const decimals = numStr.indexOf('.') !== -1 ? numStr.split('.')[1].length : 0;
+  const target = parseFloat(numStr.replace(/,/g, ''));
+  if (!isFinite(target)) return;
+  const fmt = v => {
+    let s = decimals ? v.toFixed(decimals) : String(Math.round(v));
+    if (hasComma) s = Number(s).toLocaleString('en-US', { minimumFractionDigits: decimals, maximumFractionDigits: decimals });
+    return prefix + s + suffix;
+  };
+  let start = null;
+  (function step(ts) {
+    if (!start) start = ts;
+    const p = Math.min((ts - start) / 1600, 1);
+    const ease = 1 - Math.pow(1 - p, 3);
+    el.textContent = fmt(ease * target);
+    if (p < 1) requestAnimationFrame(step);
+    else el.textContent = fmt(target);
+  })(performance.now());
+}
+const sbObs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { animateSbVal(e.target); sbObs.unobserve(e.target); } });
+}, { threshold: 0.3 });
+document.querySelectorAll('.sb-val').forEach(el => sbObs.observe(el));
+
+/* 6 — Why cards: cursor spotlight (--mx / --my) */
+if (window.matchMedia('(hover:hover)').matches) {
+  document.querySelectorAll('.wc').forEach(wc => {
+    wc.addEventListener('mousemove', e => {
+      const r = wc.getBoundingClientRect();
+      wc.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+      wc.style.setProperty('--my', (e.clientY - r.top)  + 'px');
+    });
+  });
+}
+
+/* 8 — Trust wave: hovering one item briefly nudges its neighbours */
+const trustItems = [...document.querySelectorAll('.trust-item')];
+trustItems.forEach((item, idx) => {
+  item.addEventListener('mouseenter', () => {
+    [idx - 1, idx + 1].forEach(n => {
+      const nb = trustItems[n];
+      if (!nb) return;
+      nb.style.transition = 'transform 0.3s ease';
+      nb.style.transform = 'translateY(-4px)';
+      setTimeout(() => { nb.style.transform = ''; }, 300);
+    });
+  });
+});
+
+/* 9 — Parallax on hero 3D chips (independent `translate` so float animation still runs) */
+const parallaxChips = [...document.querySelectorAll('.chip3d')];
+if (parallaxChips.length) {
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY;
+    parallaxChips.forEach((c, i) => {
+      c.style.translate = '0 ' + (-y * ((i + 1) * 0.05)) + 'px';
+    });
+  }, { passive: true });
 }
