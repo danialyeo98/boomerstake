@@ -1,5 +1,5 @@
 /* =====================================================
-   BoomersStake AUS — Premium Redesign
+   BoomerStake AUS — Premium Redesign
    Direction: Apple × Revolut × Wise
    ===================================================== */
 
@@ -756,7 +756,7 @@ button { border: none; background: none; cursor: pointer; font: inherit; }
   box-shadow: var(--shadow-xl), 0 0 0 1px var(--border-blue);
 }
 
-/* ── CARD 1: Featured — BoomersStake AUS ── */
+/* ── CARD 1: Featured — BoomerStake AUS ── */
 .pcard.featured {
   border-color: var(--gold);
   box-shadow: var(--shadow-lg), 0 0 0 1px var(--border-gold);

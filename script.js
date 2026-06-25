@@ -1,5 +1,5 @@
 
-/* BoomersStake AUS — script.js */
+/* BoomerStake AUS — script.js */
 
 /* ── Page entrance (reveal body) — runs first so a later error can't keep it hidden ── */
 (function revealBody() {
@@ -143,7 +143,7 @@ document.querySelectorAll('.fq-q').forEach(q => {
 
 /* ── Live activity feed ── */
 const FD = [
-  { name:'@perth_vip21',   action:'won big at BoomersStake',    amt:'+$4,200', col:'#C9A84C', icon:'🏆' },
+  { name:'@perth_vip21',   action:'won big at BoomerStake',    amt:'+$4,200', col:'#C9A84C', icon:'🏆' },
   { name:'@brissy_roller', action:'claimed free spins',          amt:'500 FS',  col:'#0066FF', icon:'🎯' },
   { name:'@sydney_99',     action:'registered via partner link', amt:'New',     col:'#00C896', icon:'⚡' },
   { name:'@mel_vip_king',  action:'cashed out instantly',        amt:'+$1,850', col:'#0066FF', icon:'💎' },
