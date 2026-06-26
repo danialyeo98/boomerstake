@@ -334,3 +334,37 @@ if (parallaxChips.length) {
     });
   }, { passive: true });
 }
+
+/* ════════ MULTI-PAGE SCROLL ANIMATIONS ════════ */
+
+/* Auto-assign reveal animation to section headings (variety + drama) */
+document.querySelectorAll('.section-head').forEach(el => {
+  if (!el.hasAttribute('data-reveal')) el.setAttribute('data-reveal', 'up');
+});
+
+/* [data-reveal] observer */
+const revObs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('reveal-in'); revObs.unobserve(e.target); } });
+}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('[data-reveal]').forEach(el => {
+  const r = el.getBoundingClientRect();
+  if (r.top < window.innerHeight && r.bottom > 0) el.classList.add('reveal-in');
+  else revObs.observe(el);
+});
+/* safety net */
+setTimeout(() => document.querySelectorAll('[data-reveal]:not(.reveal-in)').forEach(el => el.classList.add('reveal-in')), 2000);
+
+/* Hero scroll-dissolve — content drifts up, fades & shrinks as you scroll past */
+const heroSection = document.getElementById('hero');
+if (heroSection && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  const layer = heroSection.querySelector('.hero-layout');
+  const floor = heroSection.querySelector('.hero-perspective-floor');
+  const onHeroScroll = () => {
+    const y = window.scrollY;
+    if (y > 760) return;
+    const p = Math.min(y / 620, 1);
+    if (layer) { layer.style.opacity = String(1 - p * 0.92); layer.style.transform = `translateY(${y * 0.16}px) scale(${1 - p * 0.06})`; }
+    if (floor) { floor.style.opacity = String(0.55 * (1 - p)); }
+  };
+  window.addEventListener('scroll', onHeroScroll, { passive: true });
+}
