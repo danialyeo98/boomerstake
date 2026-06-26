@@ -380,3 +380,35 @@ if (heroSection && !window.matchMedia('(prefers-reduced-motion: reduce)').matche
     else if (typeof revObs !== 'undefined') revObs.observe(el);
   });
 })();
+
+/* ════════ PROMOTIONS CAROUSEL ════════ */
+(function promoCarousel(){
+  const track = document.getElementById('promoTrack');
+  if (!track) return;
+  const slides = [...track.children];
+  const dotsWrap = document.getElementById('promoDots');
+  const car = document.getElementById('promoCarousel');
+  let i = 0, timer = null;
+  slides.forEach((_, k) => {
+    const b = document.createElement('button');
+    b.setAttribute('aria-label', 'Go to promotion ' + (k + 1));
+    if (k === 0) b.className = 'active';
+    b.addEventListener('click', () => go(k));
+    dotsWrap.appendChild(b);
+  });
+  const dots = [...dotsWrap.children];
+  function render(){ track.style.transform = 'translateX(-' + (i * 100) + '%)'; dots.forEach((d, k) => d.classList.toggle('active', k === i)); }
+  function go(k){ i = (k + slides.length) % slides.length; render(); restart(); }
+  function next(){ go(i + 1); }
+  function prev(){ go(i - 1); }
+  const nx = document.getElementById('promoNext'), pv = document.getElementById('promoPrev');
+  if (nx) nx.addEventListener('click', e => { e.preventDefault(); next(); });
+  if (pv) pv.addEventListener('click', e => { e.preventDefault(); prev(); });
+  function restart(){ clearInterval(timer); timer = setInterval(next, 5000); }
+  if (car) { car.addEventListener('mouseenter', () => clearInterval(timer)); car.addEventListener('mouseleave', restart); }
+  let sx = 0, moved = false;
+  track.addEventListener('touchstart', e => { sx = e.touches[0].clientX; moved = false; clearInterval(timer); }, { passive: true });
+  track.addEventListener('touchmove', () => { moved = true; }, { passive: true });
+  track.addEventListener('touchend', e => { const dx = e.changedTouches[0].clientX - sx; if (moved && Math.abs(dx) > 40) { dx < 0 ? next() : prev(); } restart(); }, { passive: true });
+  render(); restart();
+})();
