@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>How to Claim Your Welcome Bonus — Step by Step | BoomerStake Group Blog</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Syne:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Syne:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../style.css">
 <style>
 .post-hero{padding:140px 0 48px;position:relative;z-index:2}
@@ -103,16 +103,55 @@
 <canvas id="bgc"></canvas>
 <div class="c-dot" id="cDot"></div><div class="c-ring" id="cRing"></div>
 
-<nav id="nav">
-  <div class="wrap"><div class="nw">
-    <a href="../index.html" class="logo">
-      <div class="logo-gem-img"><img src="../assets/logos/boomergroup.png" alt="BoomerStake Group" width="1366" height="233" loading="lazy" decoding="async"></div>
-    </a>
-    <div class="nav-act">
-      <a href="index.html" class="btn btn-ghost btn-sm">← Blog</a>
-      <a href="https://t.me/boomerstake" target="_blank" rel="noopener noreferrer" class="btn btn-tg btn-sm">✈ Join TG</a>
+<!-- Scroll progress bar -->
+<div class="scroll-progress"></div>
+<!-- Drawer overlay -->
+<div class="drawer-overlay" id="drawerOverlay"></div>
+<!-- Mobile Drawer -->
+<div class="drawer" id="drawer">
+  <div class="drawer-header">
+    <img src="../assets/logos/boomergroup.png" alt="BoomerStake Group logo" width="1638" height="439" loading="lazy" decoding="async" style="height:34px;object-fit:contain">
+    <button class="drawer-close" id="drawerClose" aria-label="Close menu">✕</button>
+  </div>
+  <nav class="drawer-nav" aria-label="Mobile navigation">
+    <a href="../index.html" onclick="closeDrawer()">Home</a>
+    <a href="../index.html#partners" onclick="closeDrawer()">Partners</a>
+    <a href="../about.html" onclick="closeDrawer()">About</a>
+    <a href="../community.html" onclick="closeDrawer()">Community</a>
+    <a href="../reviews.html" onclick="closeDrawer()">Reviews</a>
+    <a href="../blog/index.html" onclick="closeDrawer()" class="nav-active">Blog</a>
+    <a href="../faq.html" onclick="closeDrawer()">FAQ</a>
+    <a href="../contact.html" onclick="closeDrawer()">Contact</a>
+  </nav>
+  <div class="drawer-footer">
+    <a href="https://t.me/boomerstake" target="_blank" rel="noopener noreferrer" class="btn btn-tg btn-lg btn-full" onclick="closeDrawer()">✈ Join Telegram</a>
+    <a href="../index.html#partners" class="btn btn-primary btn-lg btn-full" onclick="closeDrawer()">Get Started →</a>
+  </div>
+</div>
+<!-- NAVBAR -->
+<nav id="nav" aria-label="Primary navigation">
+  <div class="wrap">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-logo" aria-label="BoomerStake Group home">
+        <img src="../assets/logos/boomergroup.png" alt="BoomerStake Group — Australian gaming partner logo" width="1638" height="439" loading="lazy" decoding="async">
+      </a>
+      <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../index.html#partners">Partners</a></li>
+        <li><a href="../about.html">About</a></li>
+        <li><a href="../community.html">Community</a></li>
+        <li><a href="../reviews.html">Reviews</a></li>
+        <li><a href="../blog/index.html" aria-current="page" class="nav-active">Blog</a></li>
+        <li><a href="../faq.html">FAQ</a></li>
+        <li><a href="../contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="https://t.me/boomerstake" target="_blank" rel="noopener noreferrer" class="btn btn-ghost btn-sm nav-ghost">✈ Telegram</a>
+        <a href="../index.html#partners" class="btn btn-primary btn-sm">Get Started</a>
+        <button class="hamburger" id="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+      </div>
     </div>
-  </div></div>
+  </div>
 </nav>
 
 <section class="post-hero">
@@ -120,7 +159,7 @@
     <div class="eyebrow">Bonus Guide</div>
     <div style="font-size:64px;margin:16px 0">🎰</div>
     <h1 class="h-lg" style="margin-bottom:20px">How to Claim Your Welcome Bonus — Step by Step</h1>
-    <div style="font-family:var(--fm);font-size:10px;color:var(--t5);letter-spacing:.15em">May 2025 · BOOMERSTAKE AUS TEAM</div>
+    <div style="font-family:var(--fm);font-size:10px;color:var(--t5);letter-spacing:.15em">May 2025 · BOOMERSTAKE GROUP TEAM</div>
   </div>
 </section>
 

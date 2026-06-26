@@ -2592,3 +2592,42 @@ body { opacity: 0; transition: opacity 0.4s ease; }
   [data-reveal], .fade { opacity: 1 !important; transform: none !important; filter: none !important; }
   .hero-layout { transform: none !important; opacity: 1 !important; }
 }
+
+/* ═══════════════════════════════════════════════════════
+   LEGACY THEME COMPAT — blog + partner pages → white/blue/gold
+   ═══════════════════════════════════════════════════════ */
+:root{
+  --t2:#0A1628; --t3:#3D4D63; --t4:#5A6B82; --t5:#7A8BA0;
+  --p3:#0066FF; --c4:#0066FF;
+  --fd:'Plus Jakarta Sans',sans-serif; --fm:'JetBrains Mono',monospace;
+  --glass-bg:#ffffff; --glass-b:#E2E8F0;
+  --ease-spring:cubic-bezier(0.34,1.56,0.64,1);
+}
+/* kill old dark-theme background & custom-cursor layers on light pages */
+.bg-grid,.bg-amb,.bg-fog,.bg-vig,.bg-grain,.c-dot,.c-ring,#bgc{ display:none !important; }
+/* gradient accent text (e.g. "STAKE" in blog title) */
+.gtp{ background:linear-gradient(90deg,#0066FF,#00C896); -webkit-background-clip:text; background-clip:text; color:transparent; }
+/* recolor blog cards (were purple/cyan) to brand */
+.blog-card-img{ background:linear-gradient(135deg, rgba(0,102,255,.14), rgba(0,200,150,.12)) !important; }
+.blog-card:hover{ border-color:var(--border-blue) !important; box-shadow:0 22px 55px rgba(10,22,40,.14), 0 0 0 1px rgba(0,102,255,.16) !important; }
+.post-cta{ background:linear-gradient(135deg, rgba(0,102,255,.08), rgba(0,200,150,.06)) !important; border:1px solid rgba(0,102,255,.2) !important; }
+
+/* ═══════════════════════════════════════════════════════
+   ANIMATION POLISH (designer pass)
+   ═══════════════════════════════════════════════════════ */
+body { overflow-x: clip; } /* safeguard against reveal translate overflow */
+
+/* crisper, more elegant reveal */
+.fade { transform: translateY(36px) scale(0.99); filter: blur(4px);
+  transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1), filter 0.6s ease; }
+.fade.in { opacity: 1; transform: none; filter: none; }
+[data-reveal] { transition: opacity 0.75s cubic-bezier(0.16,1,0.3,1), transform 0.85s cubic-bezier(0.16,1,0.3,1), filter 0.6s ease; }
+
+/* hero content gets transform+filter as it dissolves */
+.hero-layout { will-change: transform, opacity, filter; }
+
+/* partner detail logo → dark badge so the black-bg logo blends */
+.partner-logo-big { background: #000 !important; }
+
+/* polished scroll-progress */
+.scroll-progress { box-shadow: 0 0 10px rgba(0,102,255,0.4); }

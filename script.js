@@ -363,7 +363,7 @@ if (heroSection && !window.matchMedia('(prefers-reduced-motion: reduce)').matche
     const y = window.scrollY;
     if (y > 760) return;
     const p = Math.min(y / 620, 1);
-    if (layer) { layer.style.opacity = String(1 - p * 0.92); layer.style.transform = `translateY(${y * 0.16}px) scale(${1 - p * 0.06})`; }
+    if (layer) { layer.style.opacity = String(1 - p * 0.92); layer.style.transform = `translateY(${y * 0.16}px) scale(${1 - p * 0.06})`; layer.style.filter = `blur(${p * 5}px)`; }
     if (floor) { floor.style.opacity = String(0.55 * (1 - p)); }
   };
   window.addEventListener('scroll', onHeroScroll, { passive: true });
