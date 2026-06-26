@@ -114,7 +114,7 @@ function runCountUp(el) {
     const p    = Math.min((ts - start) / 1600, 1);
     const ease = 1 - Math.pow(1 - p, 3);
     const v    = Math.floor(ease * target);
-    el.textContent = (target > 999 ? v.toLocaleString() : v) + sfx;
+    el.textContent = (el.dataset.pfx || '') + (target > 999 ? v.toLocaleString() : v) + sfx;
     if(p < 1) requestAnimationFrame(step);
   })(performance.now());
 }
@@ -411,4 +411,33 @@ if (heroSection && !window.matchMedia('(prefers-reduced-motion: reduce)').matche
   track.addEventListener('touchmove', () => { moved = true; }, { passive: true });
   track.addEventListener('touchend', e => { const dx = e.changedTouches[0].clientX - sx; if (moved && Math.abs(dx) > 40) { dx < 0 ? next() : prev(); } restart(); }, { passive: true });
   render(); restart();
+})();
+
+/* ════════ HOME: marquees + live withdrawal board ════════ */
+/* Duplicate marquee tracks for seamless infinite loop */
+document.querySelectorAll('.tm-track, .cert-track, .pay-mtrack').forEach(t => { t.innerHTML += t.innerHTML; });
+
+/* Live deposit / withdrawal board */
+(function withdrawBoard(){
+  const dep = document.getElementById('depositList');
+  const wdr = document.getElementById('withdrawalList');
+  if (!dep || !wdr) return;
+  const users = ['aussie_vip','perth_king','mel_roller','sydney99','brissy_vip','qld_roller','goldcoast_g','adelaide88','darwin_ace','hobart_hi','newy_punter','cairns_cat','geelong_g','townsville7'];
+  const partners = ['BoomerStake','RTPPokies','RTPVictory88','RTPCunt','RTPMeth'];
+  const cols = ['#0066FF','#00C896','#C9A84C','#7C3AED','#E53E3E'];
+  const pick = a => a[Math.floor(Math.random()*a.length)];
+  function row(kind){
+    const u = pick(users), p = pick(partners), c = pick(cols);
+    const v = kind==='dep' ? (Math.floor(Math.random()*780)+20) : (Math.floor(Math.random()*4950)+50);
+    const el = document.createElement('div');
+    el.className = 'wd-row new';
+    el.innerHTML = '<div class="wd-ava" style="background:'+c+'">'+u[0].toUpperCase()+'</div>'+
+      '<div class="wd-meta"><div class="wd-user">@'+u+'</div><div class="wd-sub">'+p+' · just now</div></div>'+
+      '<div class="wd-amt '+(kind==='dep'?'dep':'wdr')+'">'+(kind==='dep'?'+':'−')+'AUD$'+v.toLocaleString()+'</div>';
+    return el;
+  }
+  function seed(list, kind){ for (let i=0;i<6;i++){ const r=row(kind); r.classList.remove('new'); list.appendChild(r); } }
+  seed(dep,'dep'); seed(wdr,'wdr');
+  setInterval(()=>{ dep.insertBefore(row('dep'), dep.firstChild); while(dep.children.length>6) dep.removeChild(dep.lastChild); }, 3800);
+  setInterval(()=>{ wdr.insertBefore(row('wdr'), wdr.firstChild); while(wdr.children.length>6) wdr.removeChild(wdr.lastChild); }, 4700);
 })();
