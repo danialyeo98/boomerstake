@@ -368,3 +368,15 @@ if (heroSection && !window.matchMedia('(prefers-reduced-motion: reduce)').matche
   };
   window.addEventListener('scroll', onHeroScroll, { passive: true });
 }
+
+/* ════════ PARTNER DETAIL PAGE REVEALS ════════ */
+(function partnerReveals(){
+  const els = document.querySelectorAll('.partner-hero-inner, .feat-item, .step-box, .partner-bonus-card, .partner-detail-grid > *, .step-register');
+  els.forEach(el => {
+    if (el.hasAttribute('data-reveal') || el.classList.contains('fade')) return;
+    el.setAttribute('data-reveal', 'up');
+    const r = el.getBoundingClientRect();
+    if (r.top < window.innerHeight && r.bottom > 0) el.classList.add('reveal-in');
+    else if (typeof revObs !== 'undefined') revObs.observe(el);
+  });
+})();

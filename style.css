@@ -2631,3 +2631,40 @@ body { overflow-x: clip; } /* safeguard against reveal translate overflow */
 
 /* polished scroll-progress */
 .scroll-progress { box-shadow: 0 0 10px rgba(0,102,255,0.4); }
+
+/* ═══════════════════════════════════════════════════════
+   PARTNER DETAIL PAGE — beautify + reveals
+   ═══════════════════════════════════════════════════════ */
+.partner-hero {
+  background:
+    radial-gradient(ellipse 70% 80% at 82% 0%, rgba(0,102,255,0.07), transparent 60%),
+    radial-gradient(ellipse 55% 60% at 0% 100%, rgba(201,168,76,0.06), transparent 55%),
+    #F7F9FC !important;
+  overflow: hidden;
+}
+.partner-hero::before {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background-image: linear-gradient(rgba(0,102,255,0.045) 1px, transparent 1px), linear-gradient(90deg, rgba(0,102,255,0.045) 1px, transparent 1px);
+  background-size: 44px 44px;
+  -webkit-mask-image: radial-gradient(ellipse 70% 75% at 72% 15%, #000 18%, transparent 72%);
+          mask-image: radial-gradient(ellipse 70% 75% at 72% 15%, #000 18%, transparent 72%);
+}
+.partner-hero .wrap, .partner-hero-inner { position: relative; z-index: 2; }
+
+.feat-item { transition: transform 0.25s var(--ease-out); }
+.feat-item:hover { transform: translateX(4px); }
+.feat-icon { transition: transform 0.3s var(--ease-spring); }
+.feat-item:hover .feat-icon { transform: scale(1.12) rotate(-6deg); }
+.step-box { transition: transform 0.3s var(--ease-out), box-shadow 0.3s, border-color 0.3s; }
+.step-box:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); border-color: var(--border-blue); }
+.step-num-big { display: inline-block; transition: transform 0.3s var(--ease-spring); }
+.step-box:hover .step-num-big { transform: scale(1.15); }
+.partner-bonus-card { transition: box-shadow 0.35s ease, transform 0.35s ease; }
+.partner-bonus-card:hover { box-shadow: 0 16px 46px rgba(0,102,255,0.16); }
+.partner-logo-big { transition: transform 0.4s var(--ease-out), box-shadow 0.4s; }
+.partner-logo-big:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(10,22,40,0.18); }
+
+/* Featured partner card logo — responsive on small screens (was fixed 220px) */
+@media (max-width: 768px) {
+  .pcard-hero .pcard-logo-img { width: 100% !important; height: 60px !important; max-width: 240px; }
+}
