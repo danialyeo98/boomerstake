@@ -2703,3 +2703,29 @@ body { overflow-x: clip; } /* safeguard against reveal translate overflow */
 .promo-dots button.active { background: #fff; width: 26px; border-radius: 5px; }
 @media (max-width: 768px) { .promo-arrow { width: 36px; height: 36px; font-size: 22px; } .promo-prev{left:8px} .promo-next{right:8px} }
 @media (prefers-reduced-motion: reduce) { .promo-track { transition: none; } }
+
+/* ═══════════════════════════════════════════════════════
+   CINEMATIC DARK HERO (home) — partnership photo background
+   ═══════════════════════════════════════════════════════ */
+#hero {
+  background:
+    linear-gradient(90deg, rgba(7,14,28,0.94) 0%, rgba(7,14,28,0.82) 44%, rgba(7,14,28,0.60) 100%),
+    linear-gradient(180deg, rgba(7,14,28,0.45) 0%, transparent 28%, rgba(7,14,28,0.55) 100%),
+    url("assets/hero.jpg") center 28% / cover no-repeat;
+}
+#hero .hero-bg, #hero .hero-grid-bg, #hero .hero-perspective-floor { display: none; }
+#hero .hero-headline { color: #fff; }
+#hero .hero-headline .accent { background: linear-gradient(90deg, #FFE49A, #C9A84C); -webkit-background-clip: text; background-clip: text; color: transparent; }
+#hero .hero-sub { color: rgba(255,255,255,0.82); }
+#hero .hero-badge { background: rgba(255,255,255,0.10); border-color: rgba(255,255,255,0.24); color: #fff; -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
+#hero .hero-stats { border-top-color: rgba(255,255,255,0.16); }
+#hero .hstat { border-color: rgba(255,255,255,0.16) !important; }
+#hero .hstat-val { color: #fff; }
+#hero .hstat-lbl { color: rgba(255,255,255,0.62); }
+@media (max-width: 900px) {
+  #hero {
+    background:
+      linear-gradient(180deg, rgba(7,14,28,0.88) 0%, rgba(7,14,28,0.84) 100%),
+      url("assets/hero.jpg") center / cover no-repeat;
+  }
+}
