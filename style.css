@@ -2668,3 +2668,9 @@ body { overflow-x: clip; } /* safeguard against reveal translate overflow */
 @media (max-width: 768px) {
   .pcard-hero .pcard-logo-img { width: 100% !important; height: 60px !important; max-width: 240px; }
 }
+
+/* Featured partner card: seamless rounded corners when stacked on mobile */
+@media (max-width: 768px) {
+  .pcard-hero-left  { border-radius: calc(var(--r4) - 1px) calc(var(--r4) - 1px) 0 0; }
+  .pcard-hero-right { border-radius: 0 0 calc(var(--r4) - 1px) calc(var(--r4) - 1px); border-top: 1px solid var(--border-gold); }
+}
