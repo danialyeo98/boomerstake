@@ -2791,3 +2791,9 @@ body { overflow-x: clip; } /* safeguard against reveal translate overflow */
 @keyframes marqL { from{transform:translateX(0)} to{transform:translateX(-50%)} }
 @keyframes marqR { from{transform:translateX(-50%)} to{transform:translateX(0)} }
 @media (prefers-reduced-motion: reduce) { .tm-track,.cert-track,.pay-mtrack { animation:none !important; } }
+
+/* Real logo chips (license + payment marquees) — dark chips so white logos show */
+.cert-badge, .pay-chip { background: #0A1628 !important; border: 1px solid rgba(255,255,255,0.10) !important; padding: 14px 26px; }
+.cert-badge img, .pay-chip img { height: 30px; width: auto; max-width: 168px; object-fit: contain; display: block; }
+.pay-chip { padding: 16px 28px; }
+.cert-badge { border-radius: 14px; }
