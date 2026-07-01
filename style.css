@@ -1924,27 +1924,36 @@ footer {
 @media (prefers-reduced-motion: reduce) { .feat-ribbon { animation: none; } }
 @media (max-width: 768px) { .feat-ribbon { font-size: 10px; padding: 6px 20px; letter-spacing: .1em; } }
 
-/* ── Animated CLAIM / Register buttons on partner cards — shine sweep + 3D press ── */
-.pcard .btn-primary {
-  box-shadow: 0 4px 0 #0043a8, 0 8px 18px rgba(0,102,255,.30);
-}
-.pcard .btn-primary::after {
+/* ── All partner-card buttons: unified 3D depth + press; shine on filled ones ── */
+/* Raised 3D base ledge, colour-matched per variant */
+.pcard .btn-primary { box-shadow: 0 4px 0 #0043a8, 0 8px 18px rgba(0,102,255,.30); }
+.pcard .btn-tg      { box-shadow: 0 4px 0 #156a94, 0 8px 18px rgba(34,158,217,.30); }
+.pcard .btn-ghost   { box-shadow: 0 4px 0 rgba(0,102,255,.28), 0 6px 14px rgba(0,102,255,.12); }
+
+/* Hover — lift a touch higher */
+.pcard .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 0 #0043a8, 0 12px 26px rgba(0,102,255,.42); }
+.pcard .btn-tg:hover      { transform: translateY(-2px); box-shadow: 0 6px 0 #156a94, 0 12px 26px rgba(34,158,217,.42); }
+.pcard .btn-ghost:hover   { transform: translateY(-2px); box-shadow: 0 6px 0 rgba(0,102,255,.32), 0 10px 20px rgba(0,102,255,.16); }
+
+/* Active — press the button down onto its ledge */
+.pcard .btn-primary:active,
+.pcard .btn-tg:active,
+.pcard .btn-ghost:active { transform: translateY(4px) !important; }
+.pcard .btn-primary:active { box-shadow: 0 0 0 #0043a8, 0 3px 10px rgba(0,102,255,.3); }
+.pcard .btn-tg:active      { box-shadow: 0 0 0 #156a94, 0 3px 10px rgba(34,158,217,.3); }
+.pcard .btn-ghost:active   { box-shadow: 0 0 0 rgba(0,102,255,.3), 0 2px 8px rgba(0,102,255,.14); }
+
+/* Shine sweep on the filled buttons */
+.pcard .btn-primary::after, .pcard .btn-tg::after {
   content: ''; position: absolute; top: -50%; left: -130%;
   width: 55%; height: 200%;
   background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,.5) 50%, rgba(255,255,255,0) 100%);
   transform: rotate(25deg); pointer-events: none;
   animation: btnShine 3.6s infinite;
 }
+.pcard .btn-tg::after { animation-delay: 1.8s; }
 @keyframes btnShine { 0% { left: -130%; } 24% { left: 140%; } 100% { left: 140%; } }
-.pcard .btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 0 #0043a8, 0 12px 26px rgba(0,102,255,.42);
-}
-.pcard .btn-primary:active {
-  transform: translateY(4px) !important;
-  box-shadow: 0 0 0 #0043a8, 0 3px 10px rgba(0,102,255,.3);
-}
-@media (prefers-reduced-motion: reduce) { .pcard .btn-primary::after { display: none; } }
+@media (prefers-reduced-motion: reduce) { .pcard .btn-primary::after, .pcard .btn-tg::after { display: none; } }
 
 .feat-badges { display: flex; gap: 8px; margin-bottom: 8px; flex-wrap: wrap; }
 .badge-feat { display: inline-flex; align-items: center; background: var(--blue-light); border: 1px solid var(--border-blue); color: var(--blue-dark); font-size: 11px; font-weight: 700; letter-spacing: .05em; padding: 4px 10px; border-radius: var(--r-pill); }
