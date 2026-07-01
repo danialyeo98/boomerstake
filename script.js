@@ -422,17 +422,17 @@ document.querySelectorAll('.tm-track, .cert-track, .pay-mtrack').forEach(t => { 
   const dep = document.getElementById('depositList');
   const wdr = document.getElementById('withdrawalList');
   if (!dep || !wdr) return;
-  const users = ['aussie_vip','perth_king','mel_roller','sydney99','brissy_vip','qld_roller','goldcoast_g','adelaide88','darwin_ace','hobart_hi','newy_punter','cairns_cat','geelong_g','townsville7'];
   const partners = [['BoomerStake','boomerstake'],['RTPPokies','rtppokies'],['RTPVictory88','rtpvictory'],['RTPCunt','rtpcunt'],['RTPMeth','rtpmeth']];
   const cols = ['#0066FF','#00C896','#C9A84C','#7C3AED','#E53E3E'];
   const pick = a => a[Math.floor(Math.random()*a.length)];
+  const phone = () => '61******' + String(Math.floor(Math.random()*1000)).padStart(3,'0');
   function row(kind){
-    const u = pick(users), pr = pick(partners);
+    const u = phone(), pr = pick(partners);
     const v = kind==='dep' ? (Math.floor(Math.random()*780)+20) : (Math.floor(Math.random()*4950)+50);
     const el = document.createElement('div');
     el.className = 'wd-row new';
     el.innerHTML = '<div class="wd-logo"><img src="assets/logos/'+pr[1]+'.png" alt="'+pr[0]+'" height="18" decoding="async"></div>'+
-      '<div class="wd-meta"><div class="wd-user">@'+u+'</div><div class="wd-sub">'+pr[0]+' · just now</div></div>'+
+      '<div class="wd-meta"><div class="wd-user">'+u+'</div><div class="wd-sub">'+pr[0]+' · just now</div></div>'+
       '<div class="wd-amt '+(kind==='dep'?'dep':'wdr')+'">'+(kind==='dep'?'+':'−')+'AUD$'+v.toLocaleString()+'</div>';
     return el;
   }
