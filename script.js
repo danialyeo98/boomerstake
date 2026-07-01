@@ -428,7 +428,9 @@ document.querySelectorAll('.tm-track, .cert-track, .pay-mtrack').forEach(t => { 
   const phone = () => '61******' + String(Math.floor(Math.random()*1000)).padStart(3,'0');
   function row(kind){
     const u = phone(), pr = pick(partners);
-    const v = kind==='dep' ? (Math.floor(Math.random()*780)+20) : (Math.floor(Math.random()*4950)+50);
+    const v = kind==='dep'
+      ? (Math.random() < 0.82 ? Math.floor(Math.random()*90)+10 : Math.floor(Math.random()*400)+100)
+      : (Math.floor(Math.random()*4950)+50);
     const el = document.createElement('div');
     el.className = 'wd-row new';
     el.innerHTML = '<div class="wd-logo"><img src="assets/logos/'+pr[1]+'.png" alt="'+pr[0]+'" height="18" decoding="async"></div>'+
