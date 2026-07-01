@@ -41,6 +41,14 @@
   position: relative;
   overflow: hidden;
 }
+.blog-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform .5s ease;
+}
+.blog-card:hover .blog-card-img img { transform: scale(1.06); }
 .blog-card-img::after {
   content: '';
   position: absolute;
@@ -203,7 +211,7 @@
     <div class="blog-grid">
 
       <a href="how-to-claim-bonuses.html" class="blog-card fade fd1">
-        <div class="blog-card-img">🎰</div>
+        <div class="blog-card-img"><img src="../assets/blog/bonus.jpg" alt="Claim your welcome bonus" loading="lazy" decoding="async"></div>
         <div class="blog-card-body">
           <span class="blog-cat">Bonus Guide</span>
           <div class="blog-title">How to Claim Your Welcome Bonus — Step by Step</div>
@@ -213,7 +221,7 @@
       </a>
 
       <a href="what-is-rollover-rebate.html" class="blog-card fade fd2">
-        <div class="blog-card-img">💰</div>
+        <div class="blog-card-img"><img src="../assets/blog/rebate.jpg" alt="Rollover rebate explained" loading="lazy" decoding="async"></div>
         <div class="blog-card-body">
           <span class="blog-cat">Strategy</span>
           <div class="blog-title">What Is Rollover Rebate & How Does It Work?</div>
@@ -223,7 +231,7 @@
       </a>
 
       <a href="best-aussie-pokies-2025.html" class="blog-card fade fd3">
-        <div class="blog-card-img">🦘</div>
+        <div class="blog-card-img"><img src="../assets/blog/pokies.jpg" alt="Best Australian pokies sites 2025" loading="lazy" decoding="async"></div>
         <div class="blog-card-body">
           <span class="blog-cat">Top Picks</span>
           <div class="blog-title">Best Australian Pokies Sites 2025 — Our VIP Rankings</div>
@@ -233,7 +241,7 @@
       </a>
 
       <a href="telegram-vip-benefits.html" class="blog-card fade fd4">
-        <div class="blog-card-img">✈</div>
+        <div class="blog-card-img"><img src="../assets/blog/vip.jpg" alt="Telegram VIP benefits" loading="lazy" decoding="async"></div>
         <div class="blog-card-body">
           <span class="blog-cat">Community</span>
           <div class="blog-title">Why Every Aussie Gambler Should Be in Our Telegram</div>
@@ -243,7 +251,7 @@
       </a>
 
       <a href="responsible-gambling-guide.html" class="blog-card fade fd5">
-        <div class="blog-card-img">🛡️</div>
+        <div class="blog-card-img"><img src="../assets/blog/responsible.jpg" alt="Responsible gambling tips" loading="lazy" decoding="async"></div>
         <div class="blog-card-body">
           <span class="blog-cat">Responsible Gaming</span>
           <div class="blog-title">Play Smart: Responsible Gambling Tips for Aussie Players</div>
@@ -253,7 +261,7 @@
       </a>
 
       <a href="crypto-gambling-australia.html" class="blog-card fade fd6">
-        <div class="blog-card-img">₿</div>
+        <div class="blog-card-img"><img src="../assets/blog/crypto.jpg" alt="Crypto gambling in Australia" loading="lazy" decoding="async"></div>
         <div class="blog-card-body">
           <span class="blog-cat">Crypto</span>
           <div class="blog-title">Crypto Gambling in Australia — What You Need to Know</div>
