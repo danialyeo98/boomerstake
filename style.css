@@ -1902,6 +1902,50 @@ footer {
 .pcard-hero-right { padding: 36px 40px; background: #FFFDF5; border-left: 1px solid var(--border-gold); display: flex; flex-direction: column; gap: 20px; justify-content: center; border-radius: 0 calc(var(--r4) - 1px) calc(var(--r4) - 1px) 0; overflow: hidden; }
 @media (max-width: 768px) { .pcard-hero-right { border-left: none; border-top: 1px solid var(--border-gold); } }
 
+/* ── Center "Featured Partner" ribbon banner (competitor-style) ── */
+.feat-ribbon {
+  position: absolute;
+  top: -14px; left: 50%; transform: translateX(-50%);
+  display: inline-flex; align-items: center; gap: 7px;
+  background: linear-gradient(90deg, #C9A84C 0%, #FFE49A 26%, #0066FF 100%);
+  color: #fff;
+  font-family: var(--f-head); font-weight: 800;
+  font-size: 12px; letter-spacing: .16em; text-transform: uppercase;
+  padding: 7px 28px; border-radius: 999px;
+  box-shadow: 0 8px 22px rgba(0,102,255,.38), 0 2px 8px rgba(201,168,76,.5);
+  white-space: nowrap; z-index: 4;
+  animation: ribbonFloat 3s ease-in-out infinite;
+}
+.feat-ribbon::before, .feat-ribbon::after { content: '✦'; font-size: 11px; opacity: .95; }
+@keyframes ribbonFloat {
+  0%,100% { transform: translateX(-50%) translateY(0); }
+  50%     { transform: translateX(-50%) translateY(-3px); }
+}
+@media (prefers-reduced-motion: reduce) { .feat-ribbon { animation: none; } }
+@media (max-width: 768px) { .feat-ribbon { font-size: 10px; padding: 6px 20px; letter-spacing: .1em; } }
+
+/* ── Animated CLAIM / Register buttons on partner cards — shine sweep + 3D press ── */
+.pcard .btn-primary {
+  box-shadow: 0 4px 0 #0043a8, 0 8px 18px rgba(0,102,255,.30);
+}
+.pcard .btn-primary::after {
+  content: ''; position: absolute; top: -50%; left: -130%;
+  width: 55%; height: 200%;
+  background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,.5) 50%, rgba(255,255,255,0) 100%);
+  transform: rotate(25deg); pointer-events: none;
+  animation: btnShine 3.6s infinite;
+}
+@keyframes btnShine { 0% { left: -130%; } 24% { left: 140%; } 100% { left: 140%; } }
+.pcard .btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 0 #0043a8, 0 12px 26px rgba(0,102,255,.42);
+}
+.pcard .btn-primary:active {
+  transform: translateY(4px) !important;
+  box-shadow: 0 0 0 #0043a8, 0 3px 10px rgba(0,102,255,.3);
+}
+@media (prefers-reduced-motion: reduce) { .pcard .btn-primary::after { display: none; } }
+
 .feat-badges { display: flex; gap: 8px; margin-bottom: 8px; flex-wrap: wrap; }
 .badge-feat { display: inline-flex; align-items: center; background: var(--blue-light); border: 1px solid var(--border-blue); color: var(--blue-dark); font-size: 11px; font-weight: 700; letter-spacing: .05em; padding: 4px 10px; border-radius: var(--r-pill); }
 
