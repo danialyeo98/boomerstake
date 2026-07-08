@@ -1,4 +1,4 @@
-# robots.txt — BoomersStake AUS
+# robots.txt — BoomerGroup AUS
 # All crawlers welcome; nothing disallowed.
 
 User-agent: *
